@@ -5,13 +5,21 @@
     ./hardware-configuration.nix
   ];
 
-  # Bootloader
+  # ----------------------------
+  # BOOT
+  # ----------------------------
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # ----------------------------
+  # NETWORK
+  # ----------------------------
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
+  # ----------------------------
+  # TIME / LOCALE
+  # ----------------------------
   time.timeZone = "Europe/Paris";
 
   i18n.defaultLocale = "fr_FR.UTF-8";
@@ -30,11 +38,18 @@
 
   console.keyMap = "fr";
 
+  # ----------------------------
+  # PRINTING
+  # ----------------------------
   services.printing.enable = true;
 
-  # Audio
+  # ----------------------------
+  # AUDIO (PIPEWIRE)
+  # ----------------------------
   security.rtkit.enable = true;
+
   services.pulseaudio.enable = false;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -42,14 +57,21 @@
     pulse.enable = true;
   };
 
-  # Bluetooth
+  # ----------------------------
+  # BLUETOOTH
+  # ----------------------------
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # ----------------------------
+  # INPUT / SEAT
+  # ----------------------------
   services.libinput.enable = true;
   services.seatd.enable = true;
 
-  # XDG portal
+  # ----------------------------
+  # XDG PORTAL (IMPORTANT HYPRLAND)
+  # ----------------------------
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [
     pkgs.xdg-desktop-portal-hyprland
@@ -57,18 +79,28 @@
 
   services.xserver.xkb.layout = "fr";
 
+  # ----------------------------
+  # USER
+  # ----------------------------
   users.users.theo = {
     isNormalUser = true;
     description = "Theo";
     extraGroups = [ "networkmanager" "wheel" "input" "video" "seat" ];
   };
 
+  # ----------------------------
+  # FIREFOX
+  # ----------------------------
   programs.firefox.enable = true;
 
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
+  # ----------------------------
+  # UNFREE
+  # ----------------------------
+  nixpkgs.config.allowUnfree = true;
 
+  # ----------------------------
+  # SYSTEM PACKAGES (BASE ONLY)
+  # ----------------------------
   environment.systemPackages = with pkgs; [
     git
     dunst
@@ -82,11 +114,17 @@
     discord
   ];
 
+  # ----------------------------
+  # SESSION VARS
+  # ----------------------------
   environment.sessionVariables = {
     XKB_DEFAULT_LAYOUT = "fr";
     PATH = "$HOME/.local/share/bin:$PATH";
   };
 
+  # ----------------------------
+  # FLAKES
+  # ----------------------------
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.channel.enable = false;
 

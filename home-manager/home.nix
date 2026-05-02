@@ -12,7 +12,7 @@ in {
   programs.home-manager.enable = true;
 
   # ----------------------------
-  # FILES / DOTFILES
+  # DOTFILES
   # ----------------------------
   home.file = {
     "Pictures/Wallpapers/nixos-wallpaper.png" = {
@@ -45,7 +45,7 @@ in {
   };
 
   # ----------------------------
-  # PROGRAMS
+  # PROGRAMS USER
   # ----------------------------
   programs = {
     waybar.enable = true;
@@ -59,7 +59,10 @@ in {
       ];
     };
 
-    chromium.enable = true;
+    chromium = {
+      enable = true;
+      package = pkgs.chromium;
+    };
   };
 
   # ----------------------------
@@ -67,6 +70,7 @@ in {
   # ----------------------------
   services.hyprpaper = {
     enable = true;
+
     settings = {
       preload = [
         "~/Pictures/Wallpapers/nixos-wallpaper.png"
@@ -79,10 +83,11 @@ in {
   };
 
   # ----------------------------
-  # HYPRLAND
+  # HYPRLAND USER CONFIG (FULL RESTORED)
   # ----------------------------
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
 
     extraConfig = ''
       gesture = 3, horizontal, workspace
@@ -101,6 +106,18 @@ in {
         "NIXOS_OZONE_WL,1"
         "GTK_THEME,Dark-Gruvbox"
         "XDG_SESSION_DESKTOP,Hyprland"
+        "XDG_CURRENT_DESKTOP,Hyprland"
+
+        "XDG_DESKTOP_DIR,$HOME/Desktop"
+        "XDG_DOWNLOAD_DIR,$HOME/Downloads"
+        "XDG_TEMPLATES_DIR,$HOME/Templates"
+        "XDG_PUBLICSHARE_DIR,$HOME/Public"
+        "XDG_DOCUMENTS_DIR,$HOME/Documents"
+        "XDG_MUSIC_DIR,$HOME/Music"
+        "XDG_PICTURES_DIR,$HOME/Pictures"
+        "XDG_VIDEOS_DIR,$HOME/Videos"
+
+        "HYPRSHOT_DIR,$HOME/Pictures/Screenshots"
       ];
 
       exec-once = [
@@ -113,13 +130,31 @@ in {
 
       input = {
         kb_layout = "fr";
+        follow_mouse = 1;
+        numlock_by_default = true;
+        touchpad.natural_scroll = true;
       };
 
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, F, exec, $fileManager"
         "$mainMod, E, exec, $menu"
+        "$mainMod, C, exec, $code"
+        "$mainMod, G, exec, $browser"
+
         "$mainMod, Q, killactive,"
+        "$mainMod, L, exec, hyprlock"
+        "$mainMod CTRL, L, exit"
+
+        "$mainMod, W, togglefloating"
+        "$mainMod, Return, fullscreen"
+
+        "$mainMod, P, exec, hyprshot -m region --clipboard"
+      ];
+
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
       ];
     };
   };
