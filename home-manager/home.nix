@@ -25,11 +25,6 @@ in {
       source = ASSETS + "/kitty/kitty.conf";
     };
 
-    ".config/walker" = {
-      source = ASSETS + "/walker";
-      recursive = true;
-    };
-
     ".config/waybar/waybar.sh" = {
       source = ASSETS + "/waybar/waybar.sh";
       executable = true;
