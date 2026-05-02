@@ -138,23 +138,47 @@ in {
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, F, exec, $fileManager"
+
         "$mainMod, E, exec, $menu"
         "$mainMod, C, exec, $code"
         "$mainMod, G, exec, $browser"
 
         "$mainMod, Q, killactive,"
-        "$mainMod, L, exec, hyprlock"
-        "$mainMod CTRL, L, exit"
+        "$mainMod, L, exec, hyprlock"            
+        "$mainMod CTRL, L, exit,"
 
         "$mainMod, W, togglefloating"
         "$mainMod, Return, fullscreen"
 
+        "$mainMod CTRL, right, workspace, +1"
+        "$mainMod CTRL, left, workspace, -1"
+        "$mainMod ALT, right, movetoworkspace, +1"
+        "$mainMod ALT, left, movetoworkspace, -1"
+
         "$mainMod, P, exec, hyprshot -m region --clipboard"
       ];
-
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
+      ];
+      bindl = [
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+      ];
+      bindel = [
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ];
+
+      windowrule = [
+        "suppressevent maximize, class:.*"
+        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
     };
   };
