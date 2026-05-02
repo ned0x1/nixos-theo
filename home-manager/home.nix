@@ -11,46 +11,49 @@ in {
 
   programs.home-manager.enable = true;
 
-  home.file = lib.mkMerge [
-    {
-      "Pictures/Wallpapers/nixos-wallpaper.png".source =
-        ASSETS + "/wallpaper.png";
-    }
-    {
-      ".config/waybar".source =
-        ASSETS + "/waybar";
-      recursive = true;
-    }
-    {
-      ".config/kitty/kitty.conf".source =
-        ASSETS + "/kitty/kitty.conf";
-    }
-    {
-      ".config/walker".source =
-        ASSETS + "/walker";
-      recursive = true;
-    }
+  # ----------------------------
+  # FILES / DOTFILES
+  # ----------------------------
+  home.file = {
+    "Pictures/Wallpapers/nixos-wallpaper.png" = {
+      source = ASSETS + "/wallpaper.png";
+    };
 
-    {
-      ".config/waybar/waybar.sh" = {
-        source = ASSETS + "/waybar/waybar.sh";
-        executable = true;
-      };
-    }
-    {
-      ".config/waybar/modules/mediaplayer.py" = {
-        source = ASSETS + "/waybar/modules/mediaplayer.py";
-        executable = true;
-      };
-    }
-  ];
+    ".config/waybar" = {
+      source = ASSETS + "/waybar";
+      recursive = true;
+    };
 
+    ".config/kitty/kitty.conf" = {
+      source = ASSETS + "/kitty/kitty.conf";
+    };
+
+    ".config/walker" = {
+      source = ASSETS + "/walker";
+      recursive = true;
+    };
+
+    ".config/waybar/waybar.sh" = {
+      source = ASSETS + "/waybar/waybar.sh";
+      executable = true;
+    };
+
+    ".config/waybar/modules/mediaplayer.py" = {
+      source = ASSETS + "/waybar/modules/mediaplayer.py";
+      executable = true;
+    };
+  };
+
+  # ----------------------------
+  # PROGRAMS
+  # ----------------------------
   programs = {
     waybar.enable = true;
 
     vscode = {
       enable = true;
       package = pkgs.vscodium;
+
       profiles.default.extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
       ];
@@ -59,14 +62,25 @@ in {
     chromium.enable = true;
   };
 
+  # ----------------------------
+  # HYPRPAPER
+  # ----------------------------
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "~/Pictures/Wallpapers/nixos-wallpaper.png" ];
-      wallpaper = [ ", ~/Pictures/Wallpapers/nixos-wallpaper.png" ];
+      preload = [
+        "~/Pictures/Wallpapers/nixos-wallpaper.png"
+      ];
+
+      wallpaper = [
+        ", ~/Pictures/Wallpapers/nixos-wallpaper.png"
+      ];
     };
   };
 
+  # ----------------------------
+  # HYPRLAND
+  # ----------------------------
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -84,9 +98,9 @@ in {
       "$editor" = "gnome-text-editor";
 
       env = [
-        "NIXOS_OZONE_WL, 1"
-        "GTK_THEME, Dark-Gruvbox"
-        "XDG_SESSION_DESKTOP, Hyprland"
+        "NIXOS_OZONE_WL,1"
+        "GTK_THEME,Dark-Gruvbox"
+        "XDG_SESSION_DESKTOP,Hyprland"
       ];
 
       exec-once = [
@@ -97,7 +111,9 @@ in {
         "nm-applet --no-agent"
       ];
 
-      input.kb_layout = "fr";
+      input = {
+        kb_layout = "fr";
+      };
 
       bind = [
         "$mainMod, T, exec, $terminal"
