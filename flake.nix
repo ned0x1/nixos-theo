@@ -1,38 +1,45 @@
 {
-  description = "Theo NixOS config";
+    description = "Theo NixOS config";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    inputs = {
+	    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+        nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+        home-manager.url = "github:nix-community/home-manager/release-25.11";
+        home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+        firefox-addons = {
+            url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
-  };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
-  let
-    system = "x86_64-linux";
-  in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+	let 
+	    lib = nixpkgs.lib;
+	    system = "x86_64-linux";
+	    pkgs = nixpkgs.legacyPackages.${system};
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+	in
+    {
+		nixosConfigurations.nixos = lib.nixosSystem {
+                inherit system;
+				modules = [
+                    ./system/configuration.nix 
+				];
+                specialArgs = {
+                    inherit pkgs-unstable;
+                };
+        };
 
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-
-      modules = [
-        ./nixos/configuration.nix
-        ./nixos/hyprland.nix
-
-        home-manager.nixosModules.home-manager
-
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.theo = import ./home-manager/home.nix;
-        }
-      ];
+		homeConfigurations = {
+			theo = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
+				modules = [ ./home ];
+                extraSpecialArgs = {
+                    inherit pkgs-unstable;
+                    inherit inputs;
+                };
+			};
+		};
     };
-  };
 }

@@ -101,7 +101,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # ----------------------------
-  # SYSTEM PACKAGES (BASE ONLY)
+  # SYSTEM PACKAGES 
   # ----------------------------
   environment.systemPackages = with pkgs; [
     git
