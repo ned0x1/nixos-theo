@@ -8,7 +8,6 @@
     # Dev stuff
     pkgs.gcc
     pkgs.go
-    pkgs.nodejs_21
     pkgs.nodePackages.pnpm
     (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
