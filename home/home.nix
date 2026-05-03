@@ -128,7 +128,7 @@ in {
         kb_layout = "fr";
         follow_mouse = 1;
         numlock_by_default = true;
-        touchpad.natural_scroll = true;
+        touchpad.natural_scroll = false;
       };
 
       bind = [
