@@ -20,6 +20,12 @@
     pkgs.thunderbird
     pkgs.libreoffice-qt
     pkgs.vscode
+
+    # ZSH theme
+    pkgs.zsh-powerlevel10k
+
+    # Social
+    pkgs.discord
  
     # Bluetooth
     pkgs.blueberry
