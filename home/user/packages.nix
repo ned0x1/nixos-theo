@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   
@@ -32,7 +32,7 @@
 
     # Utils
     pkgs.viewnior
-    pkgs-unstable.hyprshot
+    pkgs.hyprshot
     pkgs.catppuccin-cursors.macchiatoBlue
     pkgs.catppuccin-gtk
     pkgs.papirus-folders
