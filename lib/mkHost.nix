@@ -1,23 +1,41 @@
 {
   nixpkgs,
   home-manager,
+  firefox-addons,
 
 }: {
   hostname,
   system,
   username,
+  homeManagerStateVersion,
 
 }: nixpkgs.lib.nixosSystem {
-    inherit system;
-    
-    specialArgs = {
-        inherit username;
-    };
+  inherit system;
 
-    modules = [
-        ../system/configuration.nix 
-        #../home
+  specialArgs = {
+    inherit username;
+  };
 
-        #home-manager.nixosModules.home-manager
-    ];
+  modules = [
+    ../system/configuration.nix
+
+    home-manager.nixosModules.home-manager
+
+    ({ ... }: {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        
+        home-manager.extraSpecialArgs = {
+            inherit username homeManagerStateVersion firefox-addons;
+        };
+
+        home-manager.users.${username} = {
+            imports = [
+                ../home
+            ];
+
+            home.stateVersion = homeManagerStateVersion;
+        };
+    })
+  ];
 }

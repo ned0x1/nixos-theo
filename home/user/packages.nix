@@ -8,7 +8,7 @@
     # Dev stuff
     pkgs.gcc
     pkgs.go
-    pkgs.nodePackages.pnpm
+    pkgs.pnpm
     (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.requests
@@ -28,7 +28,7 @@
     pkgs.discord
  
     # Bluetooth
-    pkgs.blueberry
+    pkgs.blueman
 
     # Utils
     pkgs.viewnior

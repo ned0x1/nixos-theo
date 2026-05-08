@@ -1,11 +1,11 @@
-{ inputs, pkgs, ... }:
+{ firefox-addons, pkgs, ... }:
 
 {
   programs.firefox = {
     enable = true;
 
     profiles.theo = {
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      extensions.packages = with firefox-addons.packages."x86_64-linux"; [
         bypass-paywalls-clean
         darkreader
         facebook-container
@@ -22,7 +22,7 @@
   programs.vscode = {
     enable = true;
 
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
     ];
   };
