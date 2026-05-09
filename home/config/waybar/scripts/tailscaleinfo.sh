@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set your hostname in the appropriate file
 # disable in waybar if not needed

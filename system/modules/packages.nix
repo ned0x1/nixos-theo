@@ -21,7 +21,7 @@
     openssl.dev
     pkg-config
     wget
-    xfce.thunar
+    thunar
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
     zip

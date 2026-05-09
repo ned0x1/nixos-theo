@@ -9,16 +9,15 @@ in
     picom.enable = true;
     openssh.enable = true;
     spice-vdagentd.enable = true;
+    power-profiles-daemon.enable = true;
 
     xserver = {
       enable = true;
-      layout = "fr";
-      xkbOptions = "grp:alt_shift_toggle, caps:swapescape";
-
-      displayManager.sddm = {
+      xkb.layout = "fr";
+    };
+    displayManager.sddm = {
         enable = true;
         theme = "astronaut";
-      };
     };
   };
 

@@ -24,6 +24,9 @@
 
     profiles.default.extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
+
+      github.copilot
+      github.copilot-chat
     ];
   };
 

@@ -7,7 +7,6 @@
     "gtk-layer-shell": true,
 	
     "include": [
-		// "~/.config/waybar/modules.jsonc",
 		"~/.config/waybar/modules/*.jsonc",
 		"~/.config/waybar/modules/custom/*.jsonc",
 		"~/.config/waybar/modules/extra/*.jsonc",
@@ -17,24 +16,18 @@
     "modules-left": [
 		"clock",
 		"network", 
-		"bluetooth",
-		"hyprland/window"
+		"bluetooth"
 	],
     "modules-center": [
-		"custom/rofi",
-		"hyprland/workspaces",
-		"group/exit",
-		"custom/wol",
-		"custom/tailscale",
-		"custom/updates",
-		"custom/github"
+		"hyprland/workspaces"
 	],
     "modules-right": [
-		"custom/media",
 		"group/hardware",
 		"group/audio",
 		"tray",
-		"custom/swaync"
+		"custom/swaync",
+		"group/exit",
+		"custom/updates"
 	],
 
 	// Group Hardware
@@ -44,7 +37,6 @@
 			"temperature",
 			"battery",
 			"power-profiles-daemon",
-			"custom/wl-gammarelay-temperature",
 			"backlight"
 		]
 	},

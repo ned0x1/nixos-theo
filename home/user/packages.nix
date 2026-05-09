@@ -12,6 +12,7 @@
     (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.requests
+        python-pkgs.pygobject3
     ]))
     pkgs.rustup
     
@@ -36,5 +37,6 @@
     pkgs.catppuccin-cursors.macchiatoBlue
     pkgs.catppuccin-gtk
     pkgs.papirus-folders
+    pkgs.swaynotificationcenter
   ];
 }

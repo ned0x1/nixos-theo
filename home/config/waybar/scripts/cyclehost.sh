@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 curHost=$(cat "$HOME/.config/.secrets/hostname.txt")
 cur=$(awk 'match($0,v){ print NR; exit }' v=$curHost "$HOME/.config/.secrets/hostnames.txt")

@@ -1,54 +1,60 @@
-threshhold_green=0
-threshhold_yellow=15
-threshhold_red=100
+#!/usr/bin/env bash
 
-# -------------------------------------------------------
-# Calculate the available updates pacman and aur (with yay)
-# -------------------------------------------------------
-list_updates_arch=$(checkupdates | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g");
-list_updates_aur=$(yay -Qua | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g");
+threshold_green=0
+threshold_yellow=15
+threshold_red=100
 
-if ! updates_arch=$(checkupdates | wc -l); then
-    updates_arch=0
-fi
-
-if ! updates_aur=$(yay -Qua | wc -l); then
-    updtates_aur=0
-fi
+updates_arch=0
+updates_aur=0
 
 list_updates=""
 
-if [ "$updates_arch" -gt 0 ]; then
-    list_updates+="${list_updates_arch}"
-    if [ "$updates_aur" -gt 0 ]; then ## TODO sistemare brutto
+# ----------------------------
+# Arch updates (safe fallback)
+# ----------------------------
+if command -v checkupdates >/dev/null 2>&1; then
+    updates_arch=$(checkupdates 2>/dev/null | wc -l)
+    list_updates_arch=$(checkupdates 2>/dev/null)
+    list_updates+="$list_updates_arch"
+fi
+
+# ----------------------------
+# AUR updates (optional)
+# ----------------------------
+if command -v yay >/dev/null 2>&1; then
+    updates_aur=$(yay -Qua 2>/dev/null | wc -l)
+    list_updates_aur=$(yay -Qua 2>/dev/null)
+
+    if [ "$updates_arch" -gt 0 ] && [ "$updates_aur" -gt 0 ]; then
         list_updates+="\n"
     fi
+
+    list_updates+="$list_updates_aur"
 fi
 
-if [ "$updates_aur" -gt 0 ]; then
-        list_updates+="${list_updates_aur}"
-fi
+# ----------------------------
+# Total
+# ----------------------------
+updates=$((updates_arch + updates_aur))
 
-# -------------------------------------------------------
-# Output in JSON format for Waybar Module custom-updates
-# -------------------------------------------------------
-updates=$(("$updates_arch" + "$updates_aur"))
-tooltip="Aggiorna il Sistema (<span size=\"small\">${updates} Pacchetto/i):"$'\n'"${list_updates}</span>"
+tooltip="Update the System (<span size=\"small\">${updates} packages):"$'\n'"${list_updates}</span>"
 
-if [ "$updates" -lt $threshhold_yellow ]; then
+# ----------------------------
+# Color logic
+# ----------------------------
+if [ "$updates" -le "$threshold_yellow" ]; then
     css_class="green"
-elif [ "$updates" -lt $threshhold_red ]; then
+elif [ "$updates" -le "$threshold_red" ]; then
     css_class="yellow"
 else
     css_class="red"
 fi
 
+# ----------------------------
+# Output JSON Waybar
+# ----------------------------
 jq -nc \
-        --arg text "$updates" \
-        --arg tooltip "$tooltip"\
-        --arg class "$css_class" \
-        '{
-            text: $text,
-            tooltip: $tooltip,
-            class: $class
-        }'
+    --arg text "$updates" \
+    --arg tooltip "$tooltip" \
+    --arg class "$css_class" \
+    '{text: $text, tooltip: $tooltip, class: $class}'

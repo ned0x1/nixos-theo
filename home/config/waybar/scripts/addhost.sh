@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cur=("$(cat $HOME/.config/.secrets/hostnames.txt)")
 echo 'Known hosts: "'${cur[*]}'"'

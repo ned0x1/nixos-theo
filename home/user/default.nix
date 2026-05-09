@@ -6,6 +6,7 @@
         ./config.nix
         ./packages.nix
         ./programs.nix
+        ./services.nix
         ./environment.nix
         ./waybar.nix
     ];
