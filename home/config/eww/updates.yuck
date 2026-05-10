@@ -1,12 +1,14 @@
-(defwindow updates
+(defwindow updates [?x ?y]
   :layer "overlay"
-  :anchor "top-left"
-  :x 0
-  :y 0
+  :anchor "top center"
+  :x { x ?: "50%" }
+  :y { y ?: "30px" }
   :width 180
   :height 80
   :background "#1f2430"
+  :focusable "ondemand"
+  :stacking "fg"
   :children (
-    (box :orientation vertical :spacing 6 :margin 8
-      (button :label "Système" :onclick "~/.config/waybar/scripts/run_system_update.sh")
-      (button :label "Home" :onclick "~/.config/waybar/scripts/run_home_update.sh"))))
+    (box :orientation "vertical" :spacing 6 :margin 8 :class "updates-box"
+      (button :class "update-btn" :label "Système" :onclick "bash -c 'bash /home/theo/.config/waybar/scripts/run_update.sh system' &")
+      (button :class "update-btn" :label "Home" :onclick "bash -c 'bash /home/theo/.config/waybar/scripts/run_update.sh home' &"))))

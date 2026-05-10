@@ -7,6 +7,7 @@
 
     # Dev stuff
     pkgs.gcc
+    pkgs.eww
     pkgs.wev
     pkgs.go
     pkgs.pnpm

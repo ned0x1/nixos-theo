@@ -1,0 +1,33 @@
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+}
+
+.updates-box {
+  background: #1f2430;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #292e42;
+}
+
+.update-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #5b6584;
+  color: #c6c7d8;
+  background: #22273a;
+  font-weight: 500;
+  transition: all 150ms ease;
+
+  &:hover {
+    background: #2a3247;
+    border-color: #7aa2f7;
+    color: #7aa2f7;
+  }
+
+  &:active {
+    background: #1f2430;
+    border-color: #5b6584;
+  }
+}
