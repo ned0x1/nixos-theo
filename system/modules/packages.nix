@@ -9,15 +9,6 @@
     # — Network —
     mtr
 
-    # — Outils CLI —
-    nano
-    ripgrep
-    tldr
-    unzip
-    wget
-    zip
-    file
-
     # — Bureau / Fichiers —
     blueman
     thunar

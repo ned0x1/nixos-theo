@@ -23,6 +23,13 @@
     git
     zoxide
     lm_sensors
+    nano
+    ripgrep
+    tldr
+    unzip
+    wget
+    zip
+    file
 
     # — Interface / Thème —
     zsh-powerlevel10k
