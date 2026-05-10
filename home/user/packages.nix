@@ -5,6 +5,7 @@
     # — Développement —
     eww
     wev
+    jq
     (python3.withPackages (ps: with ps; [
       requests
     ]))
@@ -36,11 +37,6 @@
     catppuccin-cursors.macchiatoBlue
     catppuccin-gtk
     papirus-folders
-
-    # — Bureau Hyprland —
-    hyprpaper
-    hyprshot
-    swaynotificationcenter
 
     # — Social —
     discord

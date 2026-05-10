@@ -9,6 +9,7 @@
         ./services.nix
         ./environment.nix
         ./waybar.nix
+        ./hyprland.nix
     ];
 
   nixpkgs = {
