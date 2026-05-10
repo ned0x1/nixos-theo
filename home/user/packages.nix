@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     # — Développement —
     eww
-    wev
     jq
     (python3.withPackages (ps: with ps; [
       requests

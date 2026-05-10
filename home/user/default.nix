@@ -10,6 +10,7 @@
         ./environment.nix
         ./waybar.nix
         ./hyprland.nix
+        ./fonts.nix
     ];
 
   nixpkgs = {
