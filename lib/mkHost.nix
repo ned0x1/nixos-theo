@@ -33,8 +33,6 @@
             imports = [
                 ../home
             ];
-
-            home.stateVersion = homeManagerStateVersion;
         };
     })
   ];
