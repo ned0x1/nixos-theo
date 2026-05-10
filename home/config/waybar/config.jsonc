@@ -14,15 +14,16 @@
 	],
 
     "modules-left": [
-		"clock",
-		"network", 
-		"bluetooth"
+		"group/hardware",
+		"clock"
+
 	],
     "modules-center": [
 		"hyprland/workspaces"
 	],
     "modules-right": [
-		"group/hardware",
+		"network",
+		"bluetooth",
 		"group/audio",
 		"tray",
 		"custom/swaync",
@@ -36,8 +37,7 @@
 		"modules":[
 			"temperature",
 			"battery",
-			"power-profiles-daemon",
-			"backlight"
+			"power-profiles-daemon"
 		]
 	},
 

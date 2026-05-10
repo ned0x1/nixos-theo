@@ -17,7 +17,7 @@
       allowUnfreePredicate = (_: true);
 
       permittedInsecurePackages = [
-        "electron-25.9.0" # Obsidian
+        "electron-25.9.0"
       ];
     };
   };

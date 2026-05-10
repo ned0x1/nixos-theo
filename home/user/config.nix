@@ -2,7 +2,10 @@ let configDir = ../config;
 in
 {
   home.file = {
-      ".config/wallpapers".source = "${configDir}/wallpapers";
+      ".config/wallpapers" = {
+        source = "${configDir}/wallpapers";
+        recursive = true;
+      };
       ".config/kitty".source = "${configDir}/kitty";
       ".config/neofetch".source = "${configDir}/neofetch";
       ".config/hypr".source = "${configDir}/hypr";

@@ -1,9 +1,7 @@
 { firefox-addons, pkgs, ... }:
-
 {
   programs.firefox = {
     enable = true;
-
     profiles.theo = {
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
         bypass-paywalls-clean
@@ -21,14 +19,18 @@
 
   programs.vscode = {
     enable = true;
-
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-
+      jnoortheen.nix-ide
       github.copilot
       github.copilot-chat
     ];
+    profiles.default.userSettings = {
+      "editor.fontFamily" = "'JetBrainsMono Nerd Font', monospace";
+      "editor.fontLigatures" = true;
+      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
+    };
   };
+
 
   programs.home-manager.enable = true;
 }

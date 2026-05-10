@@ -3,7 +3,7 @@
     border-radius: 0;
     font-family: "Fira Code", FontAwesome;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 10px;
     min-height: 0;
 }
 
@@ -29,8 +29,8 @@ tooltip {
 
 #workspaces {
     background: rgba(8, 7, 10, 0.6);
-    margin: 3px;
-    padding: 2px 4px;
+    margin: 2px;
+    padding: 1px 3px;
     border-radius: 10px;
     border: 1px solid #89b4fa;
 }
@@ -89,10 +89,10 @@ tooltip {
 #pulseaudio,
 #custom-swaync {
     background-color: #2f354a;
-    padding: 0px 5px;
+    padding: 0px 4px;
     border-radius: 10px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border: none;
     color: #89b4fa;
 }
@@ -100,14 +100,15 @@ tooltip {
 /* LEFT MODULES */
 
 #clock {
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     color: #89b4fa;
     margin-left: 4px;
 }
 
 #network {
-    border-radius: 0;
+    border-radius: 10px 0 0 10px;
     color: #89b4fa;
+    margin-left: 4px;
 }
 
 #network.disabled {
@@ -117,6 +118,7 @@ tooltip {
 #bluetooth {
     border-radius: 0 10px 10px 0;
     color: #89b4fa;
+    margin-right: 4px;
 }
 
 #window {
@@ -221,7 +223,7 @@ window#waybar.empty #window {
 
 #battery {
     border-radius: 0;
-    padding-left: 5px;
+    padding-left: 4px;
     color: #89b4fa;
 }
 
@@ -234,8 +236,9 @@ window#waybar.empty #window {
 }
 
 #power-profiles-daemon {
-    border-radius: 0;
-    padding-left: 5px;
+    border-radius: 0 10px 10px 0;
+    padding-left: 4px;
+    margin-right: 4px;
     color: #89b4fa;
 }
 
@@ -253,7 +256,7 @@ window#waybar.empty #window {
 
 #custom-wl-gammarelay-temperature {
     border-radius: 0;
-    padding-left: 5px;
+    padding-left: 4px;
     color: #89b4fa;
 }
 
@@ -275,10 +278,10 @@ window#waybar.empty #window {
 
 #tray {
     background-color: #2f354a;
-    padding: 0px 5px;
+    padding: 0px 4px;
     border-radius: 10px 0 0 10px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border: none;
     color: #89b4fa;
 }
@@ -289,7 +292,8 @@ window#waybar.empty #window {
 }
 
 #custom-updates {
-    border-radius: 0;
-    padding-left: 5px;
+    border-radius: 0 10px 10px 0;
+    padding-left: 4px;
+    margin-right: 4px;
     color: #89b4fa;
 }

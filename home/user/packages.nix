@@ -7,6 +7,7 @@
 
     # Dev stuff
     pkgs.gcc
+    pkgs.wev
     pkgs.go
     pkgs.pnpm
     (pkgs.python3.withPackages (python-pkgs: [
@@ -34,6 +35,7 @@
     # Utils
     pkgs.viewnior
     pkgs.hyprshot
+    pkgs.hyprpaper
     pkgs.catppuccin-cursors.macchiatoBlue
     pkgs.catppuccin-gtk
     pkgs.papirus-folders
