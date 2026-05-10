@@ -27,7 +27,7 @@ nixpkgs.lib.nixosSystem {
         home-manager.useUserPackages = true;
         
         home-manager.extraSpecialArgs = {
-            inherit username homeManagerStateVersion firefox-addons;
+            inherit username homeManagerStateVersion firefox-addons home-manager;
         };
 
         home-manager.users.${username} = {

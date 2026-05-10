@@ -5,8 +5,7 @@
         ./boot.nix
         ./fonts.nix
         ./hardware.nix
-        ./hyprland.nix
-        ./internationalisation.nix
+        ./locale.nix
         ./misc.nix
         ./networking.nix
         ./nixsettings.nix
@@ -17,7 +16,6 @@
         ./services.nix
         ./sound.nix
         ./time.nix
-        ./theme.nix
         ./users.nix
         ./virtualisation.nix
     ];

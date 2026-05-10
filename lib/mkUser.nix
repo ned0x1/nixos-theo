@@ -10,7 +10,7 @@
 home-manager.lib.homeManagerConfiguration {
   pkgs = nixpkgs.legacyPackages.${system};
   extraSpecialArgs = {
-    inherit username homeManagerStateVersion firefox-addons;
+    inherit username homeManagerStateVersion firefox-addons home-manager;
   };
   modules = [
     ../home

@@ -6,9 +6,6 @@ users.users.theo = {
      shell = pkgs.zsh;
      extraGroups = [ 
      	  "wheel" 
-        "qemu"
-        "kvm"
-        "libvirtd"
         "networkmanager"
      ]; 
    };

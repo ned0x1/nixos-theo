@@ -43,5 +43,7 @@
 
     # — Utilitaires utilisateur —
     viewnior
+    nwg-look
+
   ];
 }
