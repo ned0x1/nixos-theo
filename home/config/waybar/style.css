@@ -182,23 +182,6 @@ window#waybar.empty #window {
     color: #89b4fa;
 }
 
-#custom-github {
-    border-radius: 0 10px 10px 0;
-    color: #89b4fa;
-}
-
-#custom-github.green {
-    color: #89b4fa;
-}
-
-#custom-github.yellow {
-    color: #89b4fa;
-}
-
-#custom-github.red {
-    color: #89b4fa;
-}
-
 /* RIGHT MODULES */
 
 #custom-media {
@@ -208,13 +191,10 @@ window#waybar.empty #window {
     color: #89b4fa;
 }
 
-#custom-media.custom-spotify {
-    color: #89b4fa;
-}
-
 #temperature {
     color: #89b4fa;
     border-radius: 10px 0 0 10px;
+    margin-left: 4px;
 }
 
 #temperature.critical {

@@ -1,31 +1,32 @@
-
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
-    bat
-    btop
-    eza
-    fzf
-    git
-    lm_sensors
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtsvg
-    fastfetch
+    # — Compilateurs / Build —
+    gcc
+    openssl
+
+    # — Network —
+    mtr
+
+    # — Outils CLI —
     nano
     ripgrep
     tldr
     unzip
-    openssl
-    openssl.dev
-    pkg-config
     wget
+    zip
+    file
+
+    # — Qt5 —
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtsvg
+
+    # — Bureau / Fichiers —
+    blueman
     thunar
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
-    zip
-    zoxide
   ];
 }
-

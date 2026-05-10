@@ -9,7 +9,8 @@
   username,
   homeManagerStateVersion,
 
-}: nixpkgs.lib.nixosSystem {
+}: 
+nixpkgs.lib.nixosSystem {
   inherit system;
 
   specialArgs = {

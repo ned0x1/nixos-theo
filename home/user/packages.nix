@@ -1,46 +1,44 @@
 { pkgs, ... }:
 
 {
-  
-
-  home.packages = [
-
-    # Dev stuff
-    pkgs.gcc
-    pkgs.eww
-    pkgs.wev
-    pkgs.go
-    pkgs.pnpm
-    (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.pip
-        python-pkgs.requests
-        python-pkgs.pygobject3
+  home.packages = with pkgs; [
+    # — Développement —
+    eww
+    wev
+    (python3.withPackages (ps: with ps; [
+      requests
     ]))
-    pkgs.rustup
-    
-    # Work stuff
-    pkgs.obsidian
-    pkgs.thunderbird
-    pkgs.libreoffice-qt
-    pkgs.vscode
 
-    # ZSH theme
-    pkgs.zsh-powerlevel10k
+    # — Travail —
+    obsidian
+    thunderbird
+    vscode
 
-    # Social
-    pkgs.discord
- 
-    # Bluetooth
-    pkgs.blueman
+    # — Outils CLI —
+    bat
+    btop
+    eza
+    fastfetch
+    fzf
+    git
+    zoxide
+    lm_sensors
 
-    # Utils
-    pkgs.viewnior
-    pkgs.hyprshot
-    pkgs.hyprpaper
-    pkgs.file
-    pkgs.catppuccin-cursors.macchiatoBlue
-    pkgs.catppuccin-gtk
-    pkgs.papirus-folders
-    pkgs.swaynotificationcenter
+    # — Interface / Thème —
+    zsh-powerlevel10k
+    catppuccin-cursors.macchiatoBlue
+    catppuccin-gtk
+    papirus-folders
+
+    # — Bureau Hyprland —
+    hyprpaper
+    hyprshot
+    swaynotificationcenter
+
+    # — Social —
+    discord
+
+    # — Utilitaires utilisateur —
+    viewnior
   ];
 }

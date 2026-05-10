@@ -13,10 +13,12 @@ fi
 # Reload config to ensure latest changes are loaded
 "$EWW_CMD" reload 2>/dev/null || true
 
-# Toggle window
+# Toggle windows
 if "$EWW_CMD" windows 2>/dev/null | grep -q "updates"; then
   "$EWW_CMD" close updates
+  "$EWW_CMD" close updates-overlay
 else
+  "$EWW_CMD" open updates-overlay
   "$EWW_CMD" open updates
 fi
 
