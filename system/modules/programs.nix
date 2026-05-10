@@ -25,9 +25,9 @@
       };
 
       gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
+        agent = {
+          enable = true;
+          enableSSHSupport = true;
         };
       };
 

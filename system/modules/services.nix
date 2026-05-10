@@ -6,9 +6,7 @@ in
 {
   services = {
     dbus.enable = true;
-    picom.enable = true;
     openssh.enable = true;
-    spice-vdagentd.enable = true;
     power-profiles-daemon.enable = true;
 
     xserver = {
