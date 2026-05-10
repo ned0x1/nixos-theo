@@ -20,13 +20,25 @@
       username = "theo";
       homeManagerStateVersion = "26.05";
 
-      mkHost = import ./lib/mkHost.nix {inherit (inputs) nixpkgs home-manager firefox-addons;};
+      mkHost = import ./lib/mkHost.nix {
+        inherit (inputs) nixpkgs home-manager firefox-addons;
+    };
+
+      mkUser = import ./lib/mkUser.nix {
+        inherit (inputs) nixpkgs home-manager firefox-addons;
+      };
 
     in{
       nixosConfigurations = {
         "pc-portable" = mkHost {
             inherit system username homeManagerStateVersion;
             hostname = "pc-portable";
+        };
+      };
+      
+      homeConfigurations = {
+        "${username}" = mkUser {
+          inherit system username homeManagerStateVersion;
         };
       };
 

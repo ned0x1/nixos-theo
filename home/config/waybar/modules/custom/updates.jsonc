@@ -3,8 +3,7 @@
         "format": " ",
         "escape": false,
         "return-type": "json",
-        "exec": "~/.config/waybar/scripts/getupdates.sh",
-        "on-click": "kitty --title Updates sh -c ~/.config/waybar/scripts/installupdates.sh",
+        "on-click": "~/.config/waybar/scripts/toggle_eww_updates.sh",
         "on-click-right": "kitty --title 'Installed Packages' sh -c ~/.config/waybar/scripts/listpackages.sh",
         "tooltip": true
     }
