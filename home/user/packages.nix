@@ -36,6 +36,7 @@
     pkgs.viewnior
     pkgs.hyprshot
     pkgs.hyprpaper
+    pkgs.file
     pkgs.catppuccin-cursors.macchiatoBlue
     pkgs.catppuccin-gtk
     pkgs.papirus-folders

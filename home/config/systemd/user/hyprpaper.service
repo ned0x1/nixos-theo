@@ -1,0 +1,17 @@
+[Unit]
+Description=Hyprpaper - Wallpaper utility for Hyprland
+Documentation=https://github.com/hyprwm/hyprpaper
+PartOf=graphical-session.target
+After=graphical-session-pre.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 1
+ExecStart=%h/.nix-profile/bin/hyprpaper --config %h/.config/hypr/hyprpaper.conf
+ExecStartPost=/bin/sleep 0.5
+ExecStartPost=/run/current-system/sw/bin/hyprctl hyprpaper wallpaper "eDP-1,%h/.config/wallpapers/wall.png"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
