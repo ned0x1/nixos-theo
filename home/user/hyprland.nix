@@ -11,6 +11,6 @@
       wlogout
       wofi
       waybar
-      
+      pamixer
     ];
 }

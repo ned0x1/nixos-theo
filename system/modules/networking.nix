@@ -5,6 +5,6 @@
 	hostName = "theo";
 	networkmanager.enable = true;
 	enableIPv6 = false;
-	firewall.enable = false;
+	firewall.enable = true;
   };
 }

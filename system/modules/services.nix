@@ -6,7 +6,7 @@ in
 {
   services = {
     dbus.enable = true;
-    openssh.enable = true;
+    openssh.enable = false;
     power-profiles-daemon.enable = true;
 
     xserver = {
@@ -23,8 +23,4 @@ in
     sddmTheme
   ];
 
-  environment.etc."sddm.conf.d/theme.conf".text = ''
-    [Theme]
-    Current=astronaut
-  '';
 }
