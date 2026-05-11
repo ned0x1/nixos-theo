@@ -22,6 +22,7 @@ in
       ".config/btop".source = "${configDir}/btop";
       ".config/wofi".source = "${configDir}/wofi";
       ".config/mako".source = "${configDir}/mako";
+      ".config/yazi".source = "${configDir}/yazi";
       ".config/hypr/hyprpaper.conf".source = "${configDir}/hypr/hyprpaper.conf";
   };
 }

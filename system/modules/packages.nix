@@ -13,7 +13,7 @@
 
     # — Bureau / Fichiers —
     blueman
-    thunar
+    yazi
     xdg-desktop-portal-gtk
   ];
 }

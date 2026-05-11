@@ -1,26 +1,22 @@
 { config, pkgs, ... }:
 
-let
-  sddmTheme = import ./sddm-theme.nix { inherit pkgs; };
-in
 {
   services = {
     dbus.enable = true;
     openssh.enable = false;
     power-profiles-daemon.enable = true;
 
-    xserver = {
+    greetd = {
       enable = true;
-      xkb.layout = "fr";
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember";
+          user = "greeter";
+        };
+      };
     };
-    displayManager.sddm = {
-        enable = true;
-        theme = "astronaut";
-    };
-  };
 
-  environment.systemPackages = [
-    sddmTheme
-  ];
+    
+  };
 
 }

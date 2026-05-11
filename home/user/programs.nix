@@ -99,5 +99,9 @@
           set -g @catppuccin-flavour 'macchiato'
       '';
     };
+
+    yazi = {
+      enable = true;
+    };
   };
 }
