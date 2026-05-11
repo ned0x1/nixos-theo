@@ -2,6 +2,7 @@
 
 let
   myAliases = {
+    zsh = "${pkgs.zsh}/bin/zsh";
     cat = "bat";
     ls = "eza --icons=always";
 
@@ -23,25 +24,11 @@ let
 
 in
 {
-  programs.zsh = {
-    enable = true;
+  home.packages = with pkgs; [
+    zsh-powerlevel10k
+  ];
 
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = myAliases;
-
-    initContent = ''
-      eval "$(zoxide init --cmd cd zsh)"
-      export PATH="$PATH:/home/theo/.dotnet/tools"
-
-      export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-    '';
-  };
+  home.shellAliases = myAliases;
 
   home.file.".p10k.zsh".text = ''
     typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet

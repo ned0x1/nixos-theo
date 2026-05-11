@@ -31,12 +31,6 @@
     zip
     file
 
-    # — Interface / Thème —
-    zsh-powerlevel10k
-    catppuccin-cursors.macchiatoBlue
-    catppuccin-gtk
-    papirus-folders
-
     # — Social —
     discord
 

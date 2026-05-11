@@ -8,6 +8,8 @@
 
     # — Network —
     mtr
+    net-tools
+
 
     # — Bureau / Fichiers —
     blueman
