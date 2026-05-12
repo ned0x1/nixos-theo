@@ -12,6 +12,16 @@
             url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        nixcord = {
+            url = "github:FlameFlag/nixcord";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        stylix = {
+            url = "github:nix-community/stylix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs:
@@ -21,11 +31,11 @@
       homeManagerStateVersion = "26.05";
 
       mkHost = import ./lib/mkHost.nix {
-        inherit (inputs) nixpkgs home-manager firefox-addons;
+        inherit (inputs) nixpkgs home-manager firefox-addons nixcord stylix;
     };
 
       mkUser = import ./lib/mkUser.nix {
-        inherit (inputs) nixpkgs home-manager firefox-addons;
+        inherit (inputs) nixpkgs home-manager firefox-addons nixcord stylix;
       };
 
     in{

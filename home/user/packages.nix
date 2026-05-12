@@ -30,9 +30,7 @@
     wget
     zip
     file
-
-    # — Social —
-    discord
+    yazi
 
     # — Utilitaires utilisateur —
     viewnior

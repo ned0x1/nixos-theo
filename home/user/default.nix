@@ -11,6 +11,7 @@
         ./waybar.nix
         ./hyprland.nix
         ./fonts.nix
+        ./stylix.nix
     ];
 
   nixpkgs = {

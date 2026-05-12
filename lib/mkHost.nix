@@ -2,6 +2,8 @@
   nixpkgs,
   home-manager,
   firefox-addons,
+  nixcord,
+  stylix,
 
 }: {
   hostname,
@@ -27,11 +29,12 @@ nixpkgs.lib.nixosSystem {
         home-manager.useUserPackages = true;
         
         home-manager.extraSpecialArgs = {
-            inherit username homeManagerStateVersion firefox-addons home-manager;
+            inherit username homeManagerStateVersion firefox-addons nixcord stylix home-manager;
         };
 
         home-manager.users.${username} = {
             imports = [
+                stylix.homeManagerModules.stylix
                 ../home
             ];
         };
