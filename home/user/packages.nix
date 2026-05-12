@@ -5,6 +5,7 @@
     # — Développement —
     eww
     jq
+    nixd
     (python3.withPackages (ps: with ps; [
       requests
     ]))

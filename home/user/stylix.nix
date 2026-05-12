@@ -1,12 +1,15 @@
+{ pkgs, ... }:
 {
   stylix = {
     enable = true;
-    image = ../config/wallpapers/your-wallpaper.png; # À adapter avec ton wallpaper
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml"; # Ou ton thème
+    image = ../config/wallpapers/wall.png; 
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    
+    polarity = "dark";
     
     fonts = {
       monospace = {
-        package = pkgs.jetbrains-mono-nerd-font;
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";
       };
       sansSerif = {

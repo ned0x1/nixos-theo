@@ -13,6 +13,6 @@
 
   boot.kernelParams = [ "quiet" "loglevel=3" ];
 
-  console.keyMap = lib.mkForce "${pkgs.kbd}/share/keymaps/i386/azerty/fr.map.gz";
+  console.keyMap = lib.mkForce "fr";
 
 }

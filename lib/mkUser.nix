@@ -15,7 +15,8 @@ home-manager.lib.homeManagerConfiguration {
     inherit username homeManagerStateVersion firefox-addons nixcord stylix home-manager;
   };
   modules = [
-    stylix.homeManagerModules.stylix
+    nixcord.homeModules.nixcord
+    stylix.homeModules.stylix
     ../home
   ];
 }

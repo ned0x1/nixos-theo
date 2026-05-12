@@ -34,7 +34,8 @@ nixpkgs.lib.nixosSystem {
 
         home-manager.users.${username} = {
             imports = [
-                stylix.homeManagerModules.stylix
+                nixcord.homeModules.nixcord
+                stylix.homeModules.stylix
                 ../home
             ];
         };

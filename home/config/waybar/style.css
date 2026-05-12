@@ -9,7 +9,7 @@
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0);
-    background: rgba(21, 18, 27, 0.6);
+    background: rgba(30, 30, 46, 0.6);
     color: #89b4fa;
     transition-property: background-color;
     transition-duration: .5s;
@@ -20,7 +20,7 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background: rgba(8, 7, 10, 0.85);
+    background: rgba(30, 30, 46, 0.85);
     border-radius: 10px;
     border-width: 1px;
     border-style: solid;
@@ -28,7 +28,7 @@ tooltip {
 }
 
 #workspaces {
-    background: rgba(8, 7, 10, 0.6);
+    background: rgba(30, 30, 46, 0.6);
     margin: 2px;
     padding: 1px 3px;
     border-radius: 10px;
@@ -40,7 +40,7 @@ tooltip {
     margin: 0px 1px;
     border-radius: 8px;
     color: #89b4fa;
-    background-color: #2f354a;
+    background-color: #313244;
     transition: all 0.2s ease-in-out;
 }
 
@@ -49,7 +49,7 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: #2f354a;
+    color: #313244;
     background-color: #89b4fa;
     border-radius: 8px;
     min-width: 20px;
@@ -57,14 +57,14 @@ tooltip {
 
 #workspaces button.urgent {
     background-color: #89b4fa;
-    color: #2f354a;
+    color: #313244;
     border-radius: 8px;
     min-width: 20px;
 }
 
 #workspaces button:hover {
     background-color: #89b4fa;
-    color: #2f354a;
+    color: #313244;
     border-radius: 8px;
     min-width: 20px;
 }
@@ -88,7 +88,7 @@ tooltip {
 #custom-wl-gammarelay-temperature,
 #pulseaudio,
 #custom-swaync {
-    background-color: #2f354a;
+    background-color: #313244;
     padding: 0px 4px;
     border-radius: 10px;
     margin-top: 2px;
@@ -257,7 +257,7 @@ window#waybar.empty #window {
 }
 
 #tray {
-    background-color: #2f354a;
+    background-color: #313244;
     padding: 0px 4px;
     border-radius: 10px 0 0 10px;
     margin-top: 2px;

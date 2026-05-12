@@ -1,4 +1,4 @@
-{ config, firefox-addons, stylix, nixcord, pkgs, ... }:
+{ config, firefox-addons, stylix, nixcord, pkgs, username, ... }:
 let
   c = config.lib.stylix.colors.withHashtag;
   mono = config.stylix.fonts.monospace.name;
@@ -26,6 +26,7 @@ in
     firefox = {
       enable = true;
       profiles.theo = {
+        isDefault = true;
         extensions.packages = with firefox-addons.packages."x86_64-linux"; [
           bypass-paywalls-clean
           darkreader
@@ -48,9 +49,7 @@ in
         github.copilot-chat
       ];
       profiles.default.userSettings = {
-        "editor.fontFamily" = "'JetBrainsMono Nerd Font', monospace";
         "editor.fontLigatures" = true;
-        "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
       };
     };
 
@@ -121,74 +120,87 @@ in
           --ascii-loader: system24;    /* off | system24 | cats */
           --panel-labels: on;          /* on/off */
           --label-font-weight: 500;
-      }
+        }
 
-      :root {
-        --colors: on;
+        :root {
+          --colors: on;
 
-        /* backgrounds */
-        --bg-4: ${c.base00}; /* main background */
-        --bg-3: ${c.base01}; /* secondary background */
-        --bg-2: ${c.base02}; /* buttons */
-        --bg-1: ${c.base03}; /* clicked buttons */
+          /* backgrounds */
+          --bg-4: ${c.base00}; /* main background */
+          --bg-3: ${c.base01}; /* secondary background */
+          --bg-2: ${c.base02}; /* buttons */
+          --bg-1: ${c.base03}; /* clicked buttons */
 
-        /* text */
-        --text-5: ${c.base03}; /* muted */
-        --text-4: ${c.base04}; /* channels/icons */
-        --text-3: ${c.base05}; /* normal */
-        --text-2: ${c.base06}; /* headings/important */
-        --text-1: ${c.base07}; /* bright */
-        --text-0: var(--bg-4); /* text on colored elements */
+          /* text */
+          --text-5: ${c.base03}; /* muted */
+          --text-4: ${c.base04}; /* channels/icons */
+          --text-3: ${c.base05}; /* normal */
+          --text-2: ${c.base06}; /* headings/important */
+          --text-1: ${c.base07}; /* bright */
+          --text-0: var(--bg-4); /* text on colored elements */
 
-        /* states */
-        --hover:    color-mix(in srgb, var(--text-3), transparent 90%);
-        --active:   color-mix(in srgb, var(--text-3), transparent 82%);
-        --active-2: color-mix(in srgb, var(--text-3), transparent 74%);
-        --message-hover: color-mix(in srgb, var(--bg-4), white 4%);
+          /* states */
+          --hover:    color-mix(in srgb, var(--text-3), transparent 90%);
+          --active:   color-mix(in srgb, var(--text-3), transparent 82%);
+          --active-2: color-mix(in srgb, var(--text-3), transparent 74%);
+          --message-hover: color-mix(in srgb, var(--bg-4), white 4%);
 
-        /* accent family (derive from base0D) */
-        --lavender-1: ${c.base0D};
-        --lavender-2: color-mix(in srgb, ${c.base0D}, white 12%);
-        --lavender-3: color-mix(in srgb, ${c.base0D}, black 6%);
-        --lavender-4: color-mix(in srgb, ${c.base0D}, white 20%);
-        --lavender-5: color-mix(in srgb, ${c.base0D}, black 14%);
+          /* accent family (derive from base0D) */
+          --lavender-1: ${c.base0D};
+          --lavender-2: color-mix(in srgb, ${c.base0D}, white 12%);
+          --lavender-3: color-mix(in srgb, ${c.base0D}, black 6%);
+          --lavender-4: color-mix(in srgb, ${c.base0D}, white 20%);
+          --lavender-5: color-mix(in srgb, ${c.base0D}, black 14%);
 
-        --accent-1: var(--lavender-1);
-        --accent-2: var(--lavender-2);
-        --accent-3: var(--lavender-3);
-        --accent-4: var(--lavender-4);
-        --accent-5: var(--lavender-5);
+          --accent-1: var(--lavender-1);
+          --accent-2: var(--lavender-2);
+          --accent-3: var(--lavender-3);
+          --accent-4: var(--lavender-4);
+          --accent-5: var(--lavender-5);
 
-        /* “danger” accent (mute/deafen etc.) */
-        --accent-new: ${c.base08};
+          /* “danger” accent (mute/deafen etc.) */
+          --accent-new: ${c.base08};
 
-        /* mention / reply overlays */
-        --mention:       linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
-        --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent);
-        --reply:         linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
-        --reply-hover:   linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
+          /* mention / reply overlays */
+          --mention:       linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
+          --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent);
+          --reply:         linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
+          --reply-hover:   linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
 
-        /* status indicators */
-        --online:    ${c.base0B};
-        --dnd:       ${c.base08};
-        --idle:      ${c.base0A};
-        --streaming: ${c.base0E};
-        --offline:   var(--text-4);
+          /* status indicators */
+          --online:    ${c.base0B};
+          --dnd:       ${c.base08};
+          --idle:      ${c.base0A};
+          --streaming: ${c.base0E};
+          --offline:   var(--text-4);
 
-        /* borders */
-        --border-light: var(--hover);
-        --border:       var(--active);
-        --border-hover: var(--accent-2);
-        --button-border: color-mix(in srgb, var(--text-1), transparent 90%);
+          /* borders */
+          --border-light: var(--hover);
+          --border:       var(--active);
+          --border-hover: var(--accent-2);
+          --button-border: color-mix(in srgb, var(--text-1), transparent 90%);
 
-        --red-2:    ${c.base08};
-        --green-2:  ${c.base0B};
-        --yellow-2: ${c.base0A};
-        --blue-2:   ${c.base0C};
-        --purple-2: ${c.base0E};
-      }
-    '';
+          --red-2:    ${c.base08};
+          --green-2:  ${c.base0B};
+          --yellow-2: ${c.base0A};
+          --blue-2:   ${c.base0C};
+          --purple-2: ${c.base0E};
+        }
+      '';
+      
+      config = {
+        useQuickCss = true;
+        themeLinks = [
+          "https://refact0r.github.io/system24/build/system24.css"
+        ];
+        frameless = true;
+        plugins = {
+          ClearURLs.enable = true;  
+        };
     };
-
+    };
+    
   };
+  stylix.targets.firefox.profileNames = [ username ];
+
 }

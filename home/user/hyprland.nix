@@ -2,7 +2,6 @@
 
 {
     home.packages = with pkgs; [
-      hyprpaper
       hyprshot
       swaynotificationcenter
       kitty
