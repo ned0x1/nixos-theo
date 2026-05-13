@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
     image = ../config/wallpapers/wall.png; 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     
     polarity = "dark";
     
@@ -22,4 +22,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    font-awesome
+  ];
 }

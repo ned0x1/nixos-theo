@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
     home.packages = with pkgs; [
@@ -10,8 +10,9 @@
       wlogout
       wofi
       waybar
-      pamixer
     ];
+
+    services.swaync.enable = true;
 
     wayland.windowManager.hyprland = {
         enable = true;

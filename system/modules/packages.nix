@@ -12,7 +12,6 @@
 
 
     # — Bureau / Fichiers —
-    blueman
     yazi
     xdg-desktop-portal-gtk
   ];

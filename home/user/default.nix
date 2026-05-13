@@ -1,16 +1,13 @@
 {
     imports = [
-        ./git.nix
-        ./gtk.nix
+        #./gtk.nix
         ./shell.nix
         ./config.nix
         ./packages.nix
-        ./programs.nix
-        ./services.nix
+        ./programmes
         ./environment.nix
         ./waybar.nix
         ./hyprland.nix
-        ./fonts.nix
         ./stylix.nix
     ];
 
