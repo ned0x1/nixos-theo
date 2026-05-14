@@ -28,6 +28,8 @@ nixpkgs.lib.nixosSystem {
         home-manager.useGlobalPkgs = false;
         home-manager.useUserPackages = true;
         
+        home-manager.backupFileExtension = "bak";
+        
         home-manager.extraSpecialArgs = {
             inherit username homeManagerStateVersion firefox-addons nixcord stylix home-manager;
         };

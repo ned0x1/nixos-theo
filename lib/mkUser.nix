@@ -10,7 +10,9 @@
   homeManagerStateVersion,
 }:
 home-manager.lib.homeManagerConfiguration {
-  pkgs = nixpkgs.legacyPackages.${system};
+  pkgs = import nixpkgs {
+    inherit system;
+  };
   extraSpecialArgs = {
     inherit username homeManagerStateVersion firefox-addons nixcord stylix home-manager;
   };

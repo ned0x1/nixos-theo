@@ -14,15 +14,13 @@
     thunderbird
 
     # — Outils CLI —
-    bat
-    btop
     eza
-    fastfetch
     fzf
     git
     zoxide
     lm_sensors
     nano
+    nitch
     ripgrep
     tldr
     unzip
@@ -30,6 +28,7 @@
     zip
     file
     yazi
+    zsh
 
     # — Utilitaires utilisateur —
     viewnior

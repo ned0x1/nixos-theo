@@ -1,6 +1,6 @@
 {
     imports = [
-        ./shell.nix
+        #./shell.nix
         ./config.nix
         ./packages.nix
         ./programmes

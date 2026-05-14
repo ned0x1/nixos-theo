@@ -3,7 +3,7 @@
 {
 users.users.theo = {
      isNormalUser = true;
-     shell = pkgs.bash;
+     shell = pkgs.zsh;
      extraGroups = [ 
      	  "wheel" 
         "networkmanager"

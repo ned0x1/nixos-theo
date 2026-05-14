@@ -16,6 +16,6 @@
 
     programs.hyprland.enable = true;
 
-    programs.bash.enable = true;
+    programs.zsh.enable = true;
 
 }
