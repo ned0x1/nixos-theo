@@ -18,6 +18,4 @@
 
   };
 
-  systemd.services.systemd-vconsole-setup.enable = lib.mkForce false;
-
 }

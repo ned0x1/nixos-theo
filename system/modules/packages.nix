@@ -5,6 +5,7 @@
     # — Compilateurs / Build —
     gcc
     openssl
+    ncdu
 
     # — Network —
     mtr
