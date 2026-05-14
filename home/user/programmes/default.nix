@@ -6,5 +6,6 @@
     ./tmux.nix
     ./nixcord.nix
     ./git.nix
+    ./kitty.nix
   ];
 }

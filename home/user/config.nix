@@ -6,7 +6,7 @@ in
         source = "${configDir}/wallpapers";
         recursive = true;
       };
-      ".config/kitty".source = "${configDir}/kitty";
+      #".config/kitty".source = "${configDir}/kitty";
       ".config/neofetch".source = "${configDir}/neofetch";
       ".config/hypr/bind.conf".source = "${configDir}/hypr/bind.conf";
       ".config/hypr/exec.conf".source = "${configDir}/hypr/exec.conf";

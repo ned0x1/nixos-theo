@@ -1,6 +1,5 @@
 {
     imports = [
-        #./gtk.nix
         ./shell.nix
         ./config.nix
         ./packages.nix
