@@ -13,10 +13,6 @@ in
       ".config/hypr/monitor.conf".source = "${configDir}/hypr/monitor.conf";
       ".config/hypr/window.conf".source = "${configDir}/hypr/window.conf";
       ".config/hypr/windowrule.conf".source = "${configDir}/hypr/windowrule.conf";
-      ".config/swayidle".source = "${configDir}/swayidle";
-      ".config/swaylock".source = "${configDir}/swaylock";
       ".config/wlogout".source = "${configDir}/wlogout";
-      ".config/wofi".source = "${configDir}/wofi";
-      ".config/yazi".source = "${configDir}/yazi";
   };
 }

@@ -10,5 +10,8 @@
     ./btop
     ./waybar
     ./mako
+    ./yazi
+    ./wofi
+    ./sway
   ];
 }

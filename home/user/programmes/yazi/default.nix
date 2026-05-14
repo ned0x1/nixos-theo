@@ -1,0 +1,62 @@
+{ ... }:
+{
+  programs.yazi = {
+    enable = true;
+    settings = {
+      manager = {
+        ratio = [ 1 4 3 ];
+        sort_by = "modified";
+        sort_sensitive = false;
+        sort_reverse = false;
+        linemode = "permissions";
+        show_hidden = true;
+      };
+
+      preview = {
+        uifmt = "";
+      };
+
+      opener = {
+        edit = [
+          {
+            run = "nano \"$1\"";
+            desc = "nano";
+            block = true;
+          }
+        ];
+        open = [
+          {
+            run = "xdg-open \"$1\"";
+            orphan = true;
+            desc = "xdg-open";
+          }
+        ];
+        reveal = [
+          {
+            run = "xdg-open \"$(dirname \"$1\")\"";
+            orphan = true;
+            desc = "xdg-open";
+          }
+        ];
+      };
+
+      tasks = {
+        micro_workers = 5;
+        macro_workers = 10;
+        bizarre_retry = 5;
+      };
+
+      colors = {
+        use_256 = false;
+      };
+    };
+
+    keymap = {
+      manager = [
+        { on = "q"; run = "quit"; }
+        { on = "Q"; run = "quit --no-cwd-file"; }
+        { on = "<C-Q>"; run = "quit"; }
+      ];
+    };
+  };
+}
