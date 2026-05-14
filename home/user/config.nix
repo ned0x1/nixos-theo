@@ -13,7 +13,7 @@ in
       ".config/hypr/monitor.conf".source = "${configDir}/hypr/monitor.conf";
       ".config/hypr/window.conf".source = "${configDir}/hypr/window.conf";
       ".config/hypr/windowrule.conf".source = "${configDir}/hypr/windowrule.conf";
-      ".config/wlogout".source = "${configDir}/wlogout";
+      #".config/wlogout".source = "${configDir}/wlogout";
 
   };
 }

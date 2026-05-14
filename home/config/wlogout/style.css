@@ -1,50 +1,80 @@
 * {
-  background-image: none;
+    background-image: none;
+    font-size: 14px;
 }
 
 window {
-  background-color: rgba(36, 39, 58, 0.9);
+    background-color: transparent;
 }
 
 button {
-  margin: 8px;
-  color: #cad3f5;
-  background-color: #363a4f;
-  border-style: solid;
-  border-width: 2px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25%;
+    color: #ffffff;
+    background-color: @main-bg;
+    outline-style: none;
+    border: none;
+    border-width: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10%;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    animation: gradient_f 20s ease-in infinite;
 }
 
-button:active,
-button:focus,
+button:focus {
+    background-color: @wb-act-bg;
+    background-size: 20%;
+}
+
 button:hover {
-  color: #8bd5ca;
-  background-color: #24273a;
-  outline-style: none;
+    background-color: @wb-hvr-bg;
+    background-size: 25%;
+    border-radius: ${active_rad}px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
+}
+
+button:hover#lock {
+    border-radius: 10px 10px 0px 10px;
+    margin : 5px 0px 0px 5px;
+}
+
+button:hover#logout {
+    border-radius: 10px 0px 10px 10px;
+    margin : 0px 0px 5px 5px;
+}
+
+button:hover#shutdown {
+    border-radius: 10px 10px 10px 0px;
+    margin : 5px 5px 0px 0px;
+}
+
+button:hover#reboot {
+    border-radius: 0px 10px 10px 10px;
+    margin : 0px 5px 5px 0px;
 }
 
 #lock {
-  background-image: image(url("icons/lock.png"));
+    background-image: image(url("icons/lock_white.png"));
+    border-radius: 10px 0px 0px 0px;
+    margin : 0px 0px 0px 0px;
 }
 
 #logout {
-  background-image: image(url("icons/logout.png"));
-}
-
-#suspend {
-  background-image: image(url("icons/suspend.png"));
-}
-
-#hibernate {
-  background-image: image(url("icons/hibernate.png"));
+    background-image: image(url("icons/logout_white.png"));
+    border-radius: 0px 0px 0px 10px;
+    margin : 0px 0px 0px 0px;
 }
 
 #shutdown {
-  background-image: image(url("icons/shutdown.png"));
+    background-image: image(url("icons/shutdown_white.png"));
+    border-radius: 0px 10px 0px 0px;
+    margin : 0px 0px 0px 0px;
 }
 
 #reboot {
-  background-image: image(url("icons/reboot.png"));
+    background-image: image(url("icons/reboot_white.png"));
+    border-radius: 0px 0px 10px 0px;
+    margin : 0px 0px 0px 0px;
 }

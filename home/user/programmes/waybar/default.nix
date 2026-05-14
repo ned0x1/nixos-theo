@@ -81,7 +81,7 @@ in
           border-radius: 0;
           font-family: "${config.stylix.fonts.sansSerif.name}", FontAwesome;
           font-weight: bold;
-          font-size: 10px;
+          font-size: 12px;
           min-height: 0;
       }
 

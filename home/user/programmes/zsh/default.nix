@@ -36,7 +36,7 @@
 
       # --- Prompt simple et épuré ---
       setopt PROMPT_SUBST
-      export PS1="%F{$_zsh_path}%1~%f %F{$_zsh_icon}❯%f "
+      export PS1=$'\n%F{$_zsh_path}%~%f\n%F{$_zsh_icon}❯%f '
 
       # --- zoxide pour cd rapide ---
       eval "$(zoxide init --cmd cd zsh)"

@@ -14,5 +14,6 @@
     ./wofi
     ./hyprlock
     ./zsh
+    ./wlogout
   ];
 }
