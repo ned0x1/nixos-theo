@@ -15,5 +15,6 @@
     ./hyprlock
     ./zsh
     ./wlogout
+    ./rofi
   ];
 }
