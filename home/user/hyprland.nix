@@ -5,8 +5,6 @@
       hyprshot
       swaynotificationcenter
       kitty
-      swayidle
-      swaylock-effects
       wlogout
       wofi
       waybar
@@ -14,6 +12,27 @@
     ];
 
     services.swaync.enable = true;
+
+    services.hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          before_sleep_cmd = "${pkgs.swaylock}/bin/swaylock";
+          after_sleep_cmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+          ignore_dbus_inhibit = false;
+        };
+        listener = [
+          {
+            timeout = 300;
+            on-timeout = "${pkgs.swaylock}/bin/swaylock";
+          }
+          {
+            timeout = 420;
+            on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
+          }
+        ];
+      };
+    };
 
     wayland.windowManager.hyprland = {
         enable = true;
