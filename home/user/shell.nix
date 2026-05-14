@@ -6,20 +6,11 @@ let
     cat = "bat";
     ls = "eza --icons=always";
 
-    fullClean = ''
-      nix-collect-garbage --delete-old
-      sudo nix-collect-garbage -d
-      sudo /run/current-system/bin/switch-to-configuration boot
+    full-rebuild = ''
+      cd /home/theo/Documents/nixos-theo && sudo nixos-rebuild switch --flake .#pc-portable
     '';
 
-    rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles#pc-portable";
-
-    fullRebuild = ''
-      sudo nixos-rebuild switch --flake ~/.dotfiles#pc-portable
-      home-manager switch --flake ~/.dotfiles#pc-portable -b backup
-    '';
-
-    homeRebuild = "home-manager switch --flake ~/.dotfiles#pc-portable -b backup";
+    home-rebuild = "cd /home/theo/Documents/nixos-theo && home-manager switch --flake .#theo --impure";
   };
 
 in

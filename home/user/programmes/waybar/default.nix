@@ -224,7 +224,9 @@ in
 
       #custom-lock_screen {
           color: #${config.lib.stylix.colors.base0D};
-          border-radius: 0;
+          border-radius: 0 10px 10px 0;
+          padding-right: 8px;
+          margin-right: 4px;
       }
 
       #custom-tailscale,

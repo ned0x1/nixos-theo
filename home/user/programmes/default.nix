@@ -1,14 +1,13 @@
 {
   imports = [
-    ./zsh.nix
-    ./firefox.nix
-    ./vscode.nix
-    ./tmux.nix
-    ./nixcord.nix
-    ./git.nix
-    ./kitty.nix
-    ./btop.nix
+    ./zsh
+    ./firefox
+    ./vscode
+    ./tmux
+    ./nixcord
+    ./git
+    ./kitty
+    ./btop
     ./waybar
-    ./eww.nix
   ];
 }

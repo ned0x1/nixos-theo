@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     # — Développement —
-    eww
     jq
     nixd
     (python3.withPackages (ps: with ps; [
