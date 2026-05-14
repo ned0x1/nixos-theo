@@ -8,5 +8,6 @@
     ./git.nix
     ./kitty.nix
     ./btop.nix
+    ./waybar
   ];
 }

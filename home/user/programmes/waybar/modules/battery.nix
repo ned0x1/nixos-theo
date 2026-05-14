@@ -1,0 +1,16 @@
+{
+  battery = {
+    interval = 5;
+    states = {
+      good = 75;
+      warning = 35;
+      critical = 20;
+    };
+    format = "{icon} {capacity}%";
+    format-full = " {capacity}%";
+    format-charging = " {capacity}%";
+    format-plugged = " {capacity}%";
+    format-alt = "{time} {icon}";
+    format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+  };
+}

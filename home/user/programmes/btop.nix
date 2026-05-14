@@ -1,8 +1,8 @@
+{lib, ...}:
 {
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "catppuccin_macchiato"; # Stylix va override ça de toute façon
       theme_background = true;
       truecolor = true;
       force_tty = false;
