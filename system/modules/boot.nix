@@ -15,6 +15,5 @@
   boot.kernelParams = [ "quiet" "loglevel=3" ];
 
   console.keyMap = lib.mkForce "fr";
-  console.numLock = true;
 
 }

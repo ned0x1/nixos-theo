@@ -9,5 +9,6 @@
     ./kitty
     ./btop
     ./waybar
+    ./mako
   ];
 }

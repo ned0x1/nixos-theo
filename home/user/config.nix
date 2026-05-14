@@ -17,7 +17,6 @@ in
       ".config/swaylock".source = "${configDir}/swaylock";
       ".config/wlogout".source = "${configDir}/wlogout";
       ".config/wofi".source = "${configDir}/wofi";
-      ".config/mako".source = "${configDir}/mako";
       ".config/yazi".source = "${configDir}/yazi";
   };
 }
