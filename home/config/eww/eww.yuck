@@ -1,4 +1,0 @@
-;; Main eww configuration file
-;; Include all window definitions
-
-(include "./updates.yuck")

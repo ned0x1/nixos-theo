@@ -28,7 +28,6 @@ let
       (import ./modules/lock_screen.nix)
       (import ./modules/power_btn.nix)
       (import ./modules/swaync.nix)
-      ((import ./modules/updates.nix) { inherit pkgs; })
       (import ./modules/microphone.nix)
       (import ./modules/pulseaudio.nix)
       (import ./modules/tray.nix)
@@ -59,7 +58,6 @@ in
           "tray"
           "custom/swaync"
           "group/exit"
-          "custom/updates"
         ];
 
         "group/hardware" = {
@@ -158,7 +156,6 @@ in
       #custom-lock_screen,
       #custom-wol,
       #custom-tailscale,
-      #custom-updates,
       #custom-github,
       #custom-media,
       #power-profiles-daemon,
@@ -250,18 +247,6 @@ in
           color: #${config.lib.stylix.colors.base0D};
       }
 
-      #custom-updates.green {
-          color: #${config.lib.stylix.colors.base0D};
-      }
-
-      #custom-updates.yellow {
-          color: #${config.lib.stylix.colors.base0D};
-      }
-
-      #custom-updates.red {
-          color: #${config.lib.stylix.colors.base0D};
-      }
-
       /* RIGHT MODULES */
 
       #custom-media {
@@ -349,13 +334,6 @@ in
       #custom-swaync {
           border-radius: 0 10px 10px 0;
           margin-right: 4px;
-      }
-
-      #custom-updates {
-          border-radius: 0 10px 10px 0;
-          padding-left: 4px;
-          margin-right: 4px;
-          color: #${config.lib.stylix.colors.base0D};
       }
     '';
   };
