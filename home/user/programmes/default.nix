@@ -7,5 +7,6 @@
     ./nixcord.nix
     ./git.nix
     ./kitty.nix
+    ./btop.nix
   ];
 }

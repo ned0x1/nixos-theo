@@ -6,7 +6,6 @@ in
         source = "${configDir}/wallpapers";
         recursive = true;
       };
-      #".config/kitty".source = "${configDir}/kitty";
       ".config/neofetch".source = "${configDir}/neofetch";
       ".config/hypr/bind.conf".source = "${configDir}/hypr/bind.conf";
       ".config/hypr/exec.conf".source = "${configDir}/hypr/exec.conf";
@@ -19,7 +18,6 @@ in
       ".config/wlogout".source = "${configDir}/wlogout";
       ".config/waybar".source = "${configDir}/waybar";
       ".config/eww".source = "${configDir}/eww";
-      ".config/btop".source = "${configDir}/btop";
       ".config/wofi".source = "${configDir}/wofi";
       ".config/mako".source = "${configDir}/mako";
       ".config/yazi".source = "${configDir}/yazi";

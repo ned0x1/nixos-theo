@@ -13,7 +13,6 @@
     # — Travail —
     obsidian
     thunderbird
-    vscode
 
     # — Outils CLI —
     bat
