@@ -16,7 +16,6 @@
     # — Outils CLI —
     eza
     fzf
-    git
     zoxide
     lm_sensors
     nano
