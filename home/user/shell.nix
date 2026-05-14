@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+/*{ config, pkgs, ... }:
 
 let
   myAliases = {
@@ -42,4 +42,4 @@ in
 
     typeset -g POWERLEVEL9K_USER_TEMPLATE='%n'
   '';
-}
+}*/

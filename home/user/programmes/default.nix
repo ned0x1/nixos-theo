@@ -1,6 +1,6 @@
 {
   imports = [
-    ./zsh
+    #./zsh
     ./firefox
     ./vscode
     ./tmux
@@ -13,5 +13,6 @@
     ./yazi
     ./wofi
     ./hyprlock
+    ./bash
   ];
 }
