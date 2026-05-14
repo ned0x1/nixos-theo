@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -11,4 +11,5 @@
       "editor.fontLigatures" = true;
     };
   };
+
 }

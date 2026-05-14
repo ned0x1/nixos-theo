@@ -1,4 +1,4 @@
-{ config, nixcord, ... }:
+{ config, ... }:
 let
   c = config.lib.stylix.colors.withHashtag;
   mono = config.stylix.fonts.monospace.name;
@@ -15,7 +15,7 @@ in
         --code-font: "${mono}";
 
         --small-user-panel: on;      /* on/off */
-        --unrounding: on;            /* on/off */
+        --unrounding: off;            /* on/off */
         --custom-spotify-bar: on;    /* on/off */
         --ascii-titles: on;          /* on/off */
         --ascii-loader: system24;    /* off | system24 | cats */
@@ -87,6 +87,9 @@ in
         --blue-2:   ${c.base0C};
         --purple-2: ${c.base0E};
       }
+      .user-profile-sidebar {
+        display: none !important;
+      }
     '';
     
     config = {
@@ -99,5 +102,10 @@ in
         ClearURLs.enable = true;  
       };
     };
+  };
+  xdg.desktopEntries.vesktop = {
+    name = "Discord";
+    exec = "vesktop";
+    icon = "vesktop";
   };
 }

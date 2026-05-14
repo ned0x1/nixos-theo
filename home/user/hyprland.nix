@@ -10,6 +10,7 @@
       wlogout
       wofi
       waybar
+      bibata-cursors
     ];
 
     services.swaync.enable = true;
@@ -18,6 +19,13 @@
         enable = true;
 
         xwayland.enable = true;
+
+        settings = {
+          env = [
+            "XCURSOR_THEME,Bibata-Modern-Classic"
+            "XCURSOR_SIZE,16"
+          ];
+        };
 
         extraConfig = ''
             source = ~/.config/hypr/monitor.conf

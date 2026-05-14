@@ -12,7 +12,6 @@
 
 
     # — Bureau / Fichiers —
-    yazi
     xdg-desktop-portal-gtk
   ];
 }
