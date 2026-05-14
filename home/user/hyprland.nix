@@ -9,7 +9,6 @@
       wofi
       waybar
       bibata-cursors
-      hyprlock
     ];
 
     services.swaync.enable = true;

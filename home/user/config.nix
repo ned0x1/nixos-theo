@@ -14,7 +14,6 @@ in
       ".config/hypr/window.conf".source = "${configDir}/hypr/window.conf";
       ".config/hypr/windowrule.conf".source = "${configDir}/hypr/windowrule.conf";
       ".config/wlogout".source = "${configDir}/wlogout";
-      #".config/swaylock".source = "${configDir}/swaylock";
 
   };
 }
