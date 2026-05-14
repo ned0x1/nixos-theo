@@ -3,7 +3,6 @@ indicator
 clock
 screenshots
 
-effect-blur=11x11
 font=JetBrains Mono
 indicator-radius=80
 indicator-thickness=8

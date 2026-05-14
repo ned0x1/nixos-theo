@@ -12,6 +12,6 @@
     ./mako
     ./yazi
     ./wofi
-    ./sway
+    ./hyprlock
   ];
 }

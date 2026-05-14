@@ -9,7 +9,7 @@
       wofi
       waybar
       bibata-cursors
-      swaylock-effects
+      hyprlock
     ];
 
     services.swaync.enable = true;
@@ -18,14 +18,14 @@
       enable = true;
       settings = {
         general = {
-          before_sleep_cmd = "${pkgs.swaylock}/bin/swaylock";
+          before_sleep_cmd = "${pkgs.hyprlock}/bin/hyprlock";
           after_sleep_cmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
         };
         listener = [
           {
             timeout = 300;
-            on-timeout = "${pkgs.swaylock}/bin/swaylock";
+            on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
           }
           {
             timeout = 420;
