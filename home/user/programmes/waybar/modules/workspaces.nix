@@ -6,7 +6,7 @@
     on-click = "activate";
     format = "{name}";
     format-icons = {
-      urgent = "  ";
+      urgent = "  ";
       default = " ";
       empty = "";
     };

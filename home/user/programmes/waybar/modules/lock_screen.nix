@@ -1,9 +1,10 @@
 {
   "custom/lock_screen" = {
     format = "{icon}";
-    format-icons = [ "" ];
+    format-icons = [""];
     on-click = "swaylock";
     tooltip-format = "Lock Screen";
     tooltip = true;
   };
 }
+ 

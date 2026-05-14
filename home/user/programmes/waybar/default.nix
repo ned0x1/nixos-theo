@@ -1,5 +1,21 @@
 { config, pkgs, ... }:
 let
+  # Lookup table pour convertir caractères hex en valeurs
+  hexCharValue = {
+    "0" = 0; "1" = 1; "2" = 2; "3" = 3; "4" = 4; "5" = 5; "6" = 6; "7" = 7;
+    "8" = 8; "9" = 9; "a" = 10; "b" = 11; "c" = 12; "d" = 13; "e" = 14; "f" = 15;
+    "A" = 10; "B" = 11; "C" = 12; "D" = 13; "E" = 14; "F" = 15;
+  };
+
+  # Fonction pour convertir hex color en rgba
+  hexToRgba = hex: alpha:
+    let
+      r = (hexCharValue."${builtins.substring 0 1 hex}" or 0) * 16 + (hexCharValue."${builtins.substring 1 1 hex}" or 0);
+      g = (hexCharValue."${builtins.substring 2 1 hex}" or 0) * 16 + (hexCharValue."${builtins.substring 3 1 hex}" or 0);
+      b = (hexCharValue."${builtins.substring 4 1 hex}" or 0) * 16 + (hexCharValue."${builtins.substring 5 1 hex}" or 0);
+    in
+    "rgba(${toString r}, ${toString g}, ${toString b}, ${toString alpha})";
+  
   # Importer et fusionner tous les modules
   modules = with pkgs.lib;
     foldl' recursiveUpdate {} [
@@ -12,7 +28,7 @@ let
       (import ./modules/lock_screen.nix)
       (import ./modules/power_btn.nix)
       (import ./modules/swaync.nix)
-      (import ./modules/updates.nix)
+      ((import ./modules/updates.nix) { inherit pkgs; })
       (import ./modules/microphone.nix)
       (import ./modules/pulseaudio.nix)
       (import ./modules/tray.nix)
@@ -73,7 +89,7 @@ in
 
       window#waybar {
           background-color: rgba(0, 0, 0, 0);
-          background: color-mix(in srgb, #${config.lib.stylix.colors.base00} 60%, transparent);
+          background: ${hexToRgba config.lib.stylix.colors.base00 0.6};
           color: #${config.lib.stylix.colors.base0D};
           transition-property: background-color;
           transition-duration: .5s;
@@ -84,7 +100,7 @@ in
       }
 
       tooltip {
-          background: color-mix(in srgb, #${config.lib.stylix.colors.base00} 85%, transparent);
+          background: ${hexToRgba config.lib.stylix.colors.base00 0.85};
           border-radius: 10px;
           border-width: 1px;
           border-style: solid;
@@ -92,7 +108,7 @@ in
       }
 
       #workspaces {
-          background: color-mix(in srgb, #${config.lib.stylix.colors.base00} 60%, transparent);
+          background: ${hexToRgba config.lib.stylix.colors.base00 0.6};
           margin: 2px;
           padding: 1px 3px;
           border-radius: 10px;

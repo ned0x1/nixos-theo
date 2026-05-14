@@ -1,12 +1,12 @@
 {
   clock = {
     interval = 1;
-    format = "  {:%H:%M   󰃭  %d %b %Y}";
+    format = "  {:%H:%M   󰃭  %d %b %Y}";
     locale = "fr_FR.UTF-8";
     tooltip-format = "<tt><small>{calendar}</small></tt>";
     calendar = {
       mode = "month";
-      mode-mon-col = 3;
+      mode-mon-col = 3; 
       weeks-pos = "right";
       on-scroll = 1;
       format = {

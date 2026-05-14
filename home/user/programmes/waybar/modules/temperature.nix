@@ -3,12 +3,12 @@
     thermal-zone = 7;
     interval = 5;
     format = "{icon}{temperatureC}°C";
-    format-icons = [ " " ];
+    format-icons = [" "];
     format-alt-click = "click-right";
     critical-threshold = 80;
-    format-critical = " {temperatureC}°C";
+    format-critical = " {temperatureC}°C";
     on-click = "kitty --title btop sh -c 'btop'";
     tooltip-format = "CPU Temperature";
     tooltip = true;
-  };
+  }; 
 }

@@ -1,11 +1,11 @@
 {
   "custom/swaync" = {
     format = "{icon}";
-    format-icons = {
-      notification = "<span foreground='red'><small><sup>⬤</sup></small></span>";
-      none = " ";
-      dnd-notification = "<span foreground='red'><small><sup>⬤</sup></small></span>";
-      dnd-none = " ";
+    format-icons = { 
+      notification = "<span foreground='red'><small><sup>⬤</sup></small></span>";
+      none = " ";
+      dnd-notification = "<span foreground='red'><small><sup>⬤</sup></small></span>";
+      dnd-none = " ";
     };
     return-type = "json";
     exec-if = "which swaync-client";

@@ -9,5 +9,6 @@
     ./kitty.nix
     ./btop.nix
     ./waybar
+    ./eww.nix
   ];
 }

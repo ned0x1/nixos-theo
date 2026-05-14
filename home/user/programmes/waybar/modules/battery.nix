@@ -7,9 +7,9 @@
       critical = 20;
     };
     format = "{icon} {capacity}%";
-    format-full = " {capacity}%";
-    format-charging = " {capacity}%";
-    format-plugged = " {capacity}%";
+    format-full = " {capacity}%";
+    format-charging = " {capacity}%";
+    format-plugged = " {capacity}%";
     format-alt = "{time} {icon}";
     format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
   };

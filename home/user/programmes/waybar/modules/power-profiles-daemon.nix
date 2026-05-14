@@ -5,9 +5,9 @@
     tooltip = true;
     format-icons = {
       default = "";
-      performance = "";
-      balanced = "";
-      power-saver = "";
+      performance = "";
+      balanced = "";
+      power-saver = "";
     };
-  };
+  }; 
 }
