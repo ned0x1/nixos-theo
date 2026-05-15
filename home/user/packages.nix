@@ -13,6 +13,7 @@
     ))
 
     # — Travail —
+    obsidian
     thunderbird
 
     # — Outils CLI —
