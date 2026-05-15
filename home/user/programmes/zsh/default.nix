@@ -43,8 +43,13 @@
       _zsh_path="${config.lib.stylix.colors.withHashtag.base0C}"
 
       # --- Prompt simple et épuré ---
+      _git_branch() {
+        local branch
+        branch=$(${pkgs.git}/bin/git symbolic-ref --short HEAD 2>/dev/null)
+        [[ -n "$branch" ]] && echo " %F{yellow}($branch)%f"
+      }
       setopt PROMPT_SUBST
-      export PS1=$'\n%F{$_zsh_path}%~%f\n%F{$_zsh_icon}❯%f '
+      export PS1=$'\n%F{$_zsh_path}%~%f$(_git_branch)\n%F{$_zsh_icon}❯%f '
 
       # --- zoxide pour cd rapide ---
       eval "$(zoxide init --cmd cd zsh)"

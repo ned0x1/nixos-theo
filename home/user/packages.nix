@@ -31,6 +31,16 @@
     file
     yazi
     zsh
+    gcc
+    openssl
+    ncdu
+
+    # — Network —
+    mtr
+    net-tools
+
+    # — Bureau / Fichiers —
+    xdg-desktop-portal-gtk
 
   ];
 }
