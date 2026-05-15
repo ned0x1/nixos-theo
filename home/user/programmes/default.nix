@@ -15,5 +15,6 @@
     ./zsh
     ./wlogout
     ./rofi
+    ./keepassxc
   ];
 }
