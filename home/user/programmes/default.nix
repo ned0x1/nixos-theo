@@ -16,5 +16,6 @@
     ./wlogout
     ./rofi
     ./keepassXC
+    ./obsidian
   ];
 }
