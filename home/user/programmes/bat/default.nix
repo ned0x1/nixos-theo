@@ -4,6 +4,7 @@
     enable = true;
     config = {
       style = "plain";
+      pager = "never";
     };
   };
 }
