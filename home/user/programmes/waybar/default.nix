@@ -1,24 +1,48 @@
 { config, pkgs, ... }:
 let
-  # Lookup table pour convertir caractères hex en valeurs
   hexCharValue = {
-    "0" = 0; "1" = 1; "2" = 2; "3" = 3; "4" = 4; "5" = 5; "6" = 6; "7" = 7;
-    "8" = 8; "9" = 9; "a" = 10; "b" = 11; "c" = 12; "d" = 13; "e" = 14; "f" = 15;
-    "A" = 10; "B" = 11; "C" = 12; "D" = 13; "E" = 14; "F" = 15;
+    "0" = 0;
+    "1" = 1;
+    "2" = 2;
+    "3" = 3;
+    "4" = 4;
+    "5" = 5;
+    "6" = 6;
+    "7" = 7;
+    "8" = 8;
+    "9" = 9;
+    "a" = 10;
+    "b" = 11;
+    "c" = 12;
+    "d" = 13;
+    "e" = 14;
+    "f" = 15;
+    "A" = 10;
+    "B" = 11;
+    "C" = 12;
+    "D" = 13;
+    "E" = 14;
+    "F" = 15;
   };
 
-  # Fonction pour convertir hex color en rgba
-  hexToRgba = hex: alpha:
+  hexToRgba =
+    hex: alpha:
     let
-      r = (hexCharValue."${builtins.substring 0 1 hex}" or 0) * 16 + (hexCharValue."${builtins.substring 1 1 hex}" or 0);
-      g = (hexCharValue."${builtins.substring 2 1 hex}" or 0) * 16 + (hexCharValue."${builtins.substring 3 1 hex}" or 0);
-      b = (hexCharValue."${builtins.substring 4 1 hex}" or 0) * 16 + (hexCharValue."${builtins.substring 5 1 hex}" or 0);
+      r =
+        (hexCharValue."${builtins.substring 0 1 hex}" or 0) * 16
+        + (hexCharValue."${builtins.substring 1 1 hex}" or 0);
+      g =
+        (hexCharValue."${builtins.substring 2 1 hex}" or 0) * 16
+        + (hexCharValue."${builtins.substring 3 1 hex}" or 0);
+      b =
+        (hexCharValue."${builtins.substring 4 1 hex}" or 0) * 16
+        + (hexCharValue."${builtins.substring 5 1 hex}" or 0);
     in
     "rgba(${toString r}, ${toString g}, ${toString b}, ${toString alpha})";
-  
-  # Importer et fusionner tous les modules
-  modules = with pkgs.lib;
-    foldl' recursiveUpdate {} [
+
+  modules =
+    with pkgs.lib;
+    foldl' recursiveUpdate { } [
       (import ./modules/battery.nix)
       (import ./modules/bluetooth.nix)
       (import ./modules/clock.nix)
@@ -35,6 +59,12 @@ let
     ];
 in
 {
+  home.packages = with pkgs; [
+    pamixer
+    blueman
+    brightnessctl
+  ];
+
   programs.waybar = {
     enable = true;
     settings = {
@@ -62,15 +92,25 @@ in
 
         "group/hardware" = {
           orientation = "horizontal";
-          modules = [ "temperature" "battery" "power-profiles-daemon" ];
+          modules = [
+            "temperature"
+            "battery"
+            "power-profiles-daemon"
+          ];
         };
         "group/audio" = {
           orientation = "horizontal";
-          modules = [ "pulseaudio" "pulseaudio#microphone" ];
+          modules = [
+            "pulseaudio"
+            "pulseaudio#microphone"
+          ];
         };
         "group/exit" = {
           orientation = "horizontal";
-          modules = [ "custom/power_btn" "custom/lock_screen" ];
+          modules = [
+            "custom/power_btn"
+            "custom/lock_screen"
+          ];
         };
       };
     };

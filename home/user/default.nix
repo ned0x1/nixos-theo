@@ -1,14 +1,11 @@
 {
-    imports = [
-        #./shell.nix
-        ./config.nix
-        ./packages.nix
-        ./programmes
-        ./environment.nix
-        ./waybar.nix
-        ./hyprland.nix
-        ./stylix.nix
-    ];
+  imports = [
+    ./packages.nix
+    ./programmes
+    ./environment.nix
+    ./hyprland.nix
+    ./stylix.nix
+  ];
 
   nixpkgs = {
     config = {
