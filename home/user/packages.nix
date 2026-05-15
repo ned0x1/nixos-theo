@@ -5,9 +5,12 @@
     # — Développement —
     jq
     nixd
-    (python3.withPackages (ps: with ps; [
-      requests
-    ]))
+    nixfmt
+    (python3.withPackages (
+      ps: with ps; [
+        requests
+      ]
+    ))
 
     # — Travail —
     obsidian
@@ -28,9 +31,6 @@
     file
     yazi
     zsh
-
-    # — Utilitaires utilisateur —
-    viewnior
 
   ];
 }

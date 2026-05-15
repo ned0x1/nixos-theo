@@ -1,12 +1,17 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
-users.users.theo = {
-     isNormalUser = true;
-     shell = pkgs.zsh;
-     extraGroups = [ 
-     	  "wheel" 
-        "networkmanager"
-     ]; 
-   };
+  users.users.${username} = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
+  };
 }

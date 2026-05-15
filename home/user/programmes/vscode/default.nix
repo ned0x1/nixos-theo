@@ -9,6 +9,9 @@
     ];
     profiles.default.userSettings = {
       "editor.fontLigatures" = true;
+      "editor.formatOnSave" = true;
+      "nix.formatterPath" = "nixfmt";
+      "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
     };
   };
 

@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
   networking = {
-	hostName = "theo";
-	networkmanager.enable = true;
-	enableIPv6 = false;
-	firewall.enable = true;
+    hostName = username;
+    networkmanager.enable = true;
+    enableIPv6 = false;
+    firewall.enable = true;
   };
 }

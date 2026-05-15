@@ -11,7 +11,6 @@
     ./waybar
     ./mako
     ./yazi
-    ./wofi
     ./hyprlock
     ./zsh
     ./wlogout

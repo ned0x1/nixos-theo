@@ -1,15 +1,23 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 {
   programs.zsh = {
     enable = true;
 
-    autosuggestion = { 
+    autosuggestion = {
       enable = true;
-      strategy = [ "history" "completion" ];
+      strategy = [
+        "history"
+        "completion"
+      ];
     };
-    
+
     syntaxHighlighting.enable = true;
-    
+
     completionInit = ''
       autoload -U compinit && compinit
       zstyle ':completion:*' menu select
@@ -23,8 +31,8 @@
       l = "${pkgs.eza}/bin/eza -lah --git --icons=always";
       ll = "${pkgs.eza}/bin/eza -lah --git --icons=always";
       tree = "${pkgs.eza}/bin/eza -T --icons";
-      full-rebuild = "cd /home/theo/Documents/nixos-theo && sudo nixos-rebuild switch --flake .#pc-portable";
-      home-rebuild = "cd /home/theo/Documents/nixos-theo && home-manager switch --flake .#theo --impure";
+      full-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && sudo nixos-rebuild switch --flake .#pc-portable";
+      home-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && home-manager switch --flake .#${username} --impure";
       c = "clear";
     };
 
@@ -40,7 +48,7 @@
 
       # --- zoxide pour cd rapide ---
       eval "$(zoxide init --cmd cd zsh)"
-      export PATH="$PATH:/home/theo/.dotnet/tools"
+      export PATH="$PATH:${config.home.homeDirectory}/.dotnet/tools"
 
       # --- Historique ---
       HISTFILE=~/.zsh_history
