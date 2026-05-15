@@ -1,4 +1,3 @@
-{ }:
 {
   programs.keepassxc = {
     enable = true;

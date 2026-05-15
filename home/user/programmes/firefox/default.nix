@@ -1,7 +1,8 @@
 {
-  config,
-  firefox-addons,
   username,
+  firefox-addons,
+  config,
+  pkgs,
   ...
 }:
 {
@@ -10,16 +11,175 @@
     profiles.${username} = {
       isDefault = true;
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
-        bypass-paywalls-clean
         darkreader
         i-dont-care-about-cookies
         view-image
         ublock-origin
         youtube-shorts-block
         keepassxc-browser
+        foxyproxy-standard
+        container-proxy
       ];
+      settings = {
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
+        "browser.startup.page" = 1;
+        "browser.startup.homepage" = "https://www.google.com/";
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+
+      };
+      bookmarks = {
+        force = true;
+        settings = [
+          {
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "ECE";
+                bookmarks = [
+                  {
+                    name = "Boostcamp";
+                    url = "https://adfs.inseecgateway.com/adfs/ls/";
+                  }
+                  {
+                    name = "HYPERPLANNING";
+                    url = "https://planning-paris.omneseducation.com/etudiant?identifiant=atRfBMrm2HAsJPGd";
+                  }
+                  {
+                    name = "GlobalExam";
+                    url = "https://auth.global-exam.com/register";
+                  }
+                ];
+              }
+              {
+                name = "Cyber";
+                bookmarks = [
+                  {
+                    name = "HackTricks";
+                    url = "https://book.hacktricks.wiki/en/index.html";
+                  }
+                  {
+                    name = "CyberChef";
+                    url = "https://gchq.github.io/CyberChef/";
+                  }
+                  {
+                    name = "Cyber Book";
+                    url = "https://drive.google.com/drive/u/0/folders/1t_Mj_pZTWsbnNZPelsYP5iJQykPjD3Q7";
+                  }
+                  {
+                    name = "Web Security Academy";
+                    url = "https://portswigger.net/web-security";
+                  }
+                  {
+                    name = "PayloadsAllTheThings";
+                    url = "https://github.com/swisskyrepo/payloadsallthethings";
+                  }
+                  {
+                    name = "SpecterOps";
+                    url = "https://bloodhound.specterops.io/resources/edges/overview";
+                  }
+                  {
+                    name = "hackndo";
+                    url = "https://beta.hackndo.com/";
+                  }
+                  {
+                    name = "HTB";
+                    url = "https://academy.hackthebox.com/dashboard";
+                  }
+                ];
+              }
+              {
+                name = "Administratif";
+                bookmarks = [
+                  {
+                    name = "Mon espace santé";
+                    url = "https://www.monespacesante.fr/mon-espace";
+                  }
+                  {
+                    name = "CAF";
+                    url = "https://caf.fr/";
+                  }
+                  {
+                    name = "Ameli";
+                    url = "https://assure.ameli.fr/PortailAS/appmanager/PortailAS/assure";
+                  }
+                  {
+                    name = "Crédit Agricole";
+                    url = "https://www.credit-agricole.fr/ca-centrest/particulier/operations/synthese.html";
+                  }
+                ];
+              }
+              {
+                name = "Nix";
+                bookmarks = [
+                  {
+                    name = "NixOS Packages";
+                    url = "https://search.nixos.org/packages";
+                  }
+                  {
+                    name = "Home Manager Options";
+                    url = "https://home-manager-options.extranix.com/?release=master";
+                  }
+                ];
+              }
+              {
+                name = "Claude";
+                url = "https://claude.ai/";
+              }
+              {
+                name = "YouTube";
+                url = "https://www.youtube.com/";
+              }
+              {
+                name = "Twitch";
+                url = "https://www.twitch.tv/";
+              }
+              {
+                name = "WhatsApp";
+                url = "https://web.whatsapp.com/";
+              }
+              {
+                name = "Amazon Music";
+                url = "https://music.amazon.fr/";
+              }
+              {
+                name = "DeepL";
+                url = "https://www.deepl.com/translator";
+              }
+              {
+                name = "GitHub";
+                url = "https://github.com/";
+              }
+              {
+                name = "LinkedIn";
+                url = "https://www.linkedin.com/feed/";
+              }
+              {
+                name = "Canva";
+                url = "https://www.canva.com/";
+              }
+              {
+                name = "Google Docs";
+                url = "https://docs.google.com/";
+              }
+              {
+                name = "OneDrive";
+                url = "https://onedrive.live.com/?id=root&cid=AEE9EC3CBB562C1C";
+              }
+              {
+                name = "Chess.com";
+                url = "https://www.chess.com/home";
+              }
+              {
+                name = "Teams";
+                url = "https://teams.live.com/v2";
+              }
+            ];
+          }
+        ];
+      };
     };
   };
-
   stylix.targets.firefox.profileNames = [ username ];
 }

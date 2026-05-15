@@ -12,6 +12,10 @@
       "editor.formatOnSave" = true;
       "nix.formatterPath" = "nixfmt";
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
+      "workbench.colorCustomizations" = {
+        "editor.selectionBackground" = "#${config.lib.stylix.colors.base0D}80";
+        "editor.wordHighlightBackground" = "#${config.lib.stylix.colors.base0B}40";
+      };
     };
   };
 
