@@ -1,4 +1,5 @@
 { pkgs, lib, ... }:
+
 {
   home.packages = with pkgs; [
     hyprshot
@@ -11,12 +12,12 @@
   ];
 
   home.file = {
-    ".config/hypr/bind.conf".source = "./hypr/bind.conf";
-    ".config/hypr/exec.conf".source = "./hypr/exec.conf";
-    ".config/hypr/input.conf".source = "./hypr/input.conf";
-    ".config/hypr/monitor.conf".source = "./hypr/monitor.conf";
-    ".config/hypr/window.conf".source = "./hypr/window.conf";
-    ".config/hypr/windowrule.conf".source = "./hypr/windowrule.conf";
+    ".config/hypr/bind.conf".source = ./hypr/bind.conf;
+    ".config/hypr/exec.conf".source = ./hypr/exec.conf;
+    ".config/hypr/input.conf".source = ./hypr/input.conf;
+    ".config/hypr/monitor.conf".source = ./hypr/monitor.conf;
+    ".config/hypr/window.conf".source = ./hypr/window.conf;
+    ".config/hypr/windowrule.conf".source = ./hypr/windowrule.conf;
   };
 
   services.swaync.enable = true;

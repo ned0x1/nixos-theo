@@ -2,7 +2,7 @@
 {
   stylix = {
     enable = true;
-    image = ../lib/wallpapers/wall.png;
+    image = ../../lib/wallpapers/night_city.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     targets.qt.enable = false;
 

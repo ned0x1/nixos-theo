@@ -3,7 +3,7 @@
     ./packages.nix
     ./programmes
     ./environment.nix
-    ./hyprland.nix
+    ./hyprland
     ./stylix.nix
   ];
 

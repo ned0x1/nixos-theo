@@ -1,0 +1,26 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  imports = [
+    ./bat
+    ./firefox
+    ./vscode
+    ./tmux
+    ./nixcord
+    ./git
+    ./kitty
+    ./btop
+    ./waybar
+    ./mako
+    ./yazi
+    ./hyprlock
+    ./zsh
+    ./wlogout
+    ./rofi
+    ./keepassXC
+  ];
+}
