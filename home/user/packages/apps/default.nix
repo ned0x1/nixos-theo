@@ -12,6 +12,5 @@
     ./kitty
     ./nixcord
     ./vscode
-    ./yazi
   ];
 }

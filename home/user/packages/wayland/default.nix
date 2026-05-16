@@ -2,8 +2,6 @@
 {
   home.packages = with pkgs; [
     hyprshot
-    swaynotificationcenter
-    bibata-cursors
   ];
   imports = [
     ./hyprlock
@@ -11,5 +9,6 @@
     ./rofi
     ./waybar
     ./wlogout
+    ./yazi
   ];
 }
