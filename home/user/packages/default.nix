@@ -4,5 +4,6 @@
     ./dev
     ./cli
     ./wayland
+    ./pentest
   ];
 }

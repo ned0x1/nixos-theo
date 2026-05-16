@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     hyprshot
+    bibata-cursors
   ];
   imports = [
     ./hyprlock
