@@ -5,13 +5,14 @@
   nixcord,
   stylix,
 
-}: {
+}:
+{
   hostname,
   system,
   username,
   homeManagerStateVersion,
 
-}: 
+}:
 nixpkgs.lib.nixosSystem {
   inherit system;
 
@@ -24,23 +25,33 @@ nixpkgs.lib.nixosSystem {
 
     home-manager.nixosModules.home-manager
 
-    ({ ... }: {
+    (
+      { ... }:
+      {
         home-manager.useGlobalPkgs = false;
         home-manager.useUserPackages = true;
-        
+
         home-manager.backupFileExtension = "bak";
-        
+
         home-manager.extraSpecialArgs = {
-            inherit username homeManagerStateVersion firefox-addons nixcord stylix home-manager;
+          inherit
+            username
+            homeManagerStateVersion
+            firefox-addons
+            nixcord
+            stylix
+            home-manager
+            ;
         };
 
         home-manager.users.${username} = {
-            imports = [
-                nixcord.homeModules.nixcord
-                stylix.homeModules.stylix
-                ../home
-            ];
+          imports = [
+            nixcord.homeModules.nixcord
+            stylix.homeModules.stylix
+            ../home
+          ];
         };
-    })
+      }
+    )
   ];
 }
