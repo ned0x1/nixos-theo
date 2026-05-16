@@ -1,7 +1,7 @@
 {
   imports = [
     ./packages.nix
-    ./programmes
+    ./packages
     #./environment.nix
     ./hyprland
     ./stylix.nix

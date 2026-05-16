@@ -4,7 +4,14 @@
   username,
   ...
 }:
+
 {
+  home.packages = with pkgs; [
+    eza
+    fzf
+    nitch
+    zoxide
+  ];
   programs.zsh = {
     enable = true;
 

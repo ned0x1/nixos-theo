@@ -63,6 +63,7 @@ in
     pamixer
     blueman
     brightnessctl
+    lm_sensors
   ];
 
   programs.waybar = {
