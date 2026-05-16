@@ -11,14 +11,13 @@
     profiles.${username} = {
       isDefault = true;
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
-        darkreader
         i-dont-care-about-cookies
         view-image
         ublock-origin
         youtube-shorts-block
         keepassxc-browser
-        foxyproxy-standard
         container-proxy
+        multi-account-containers
       ];
       settings = {
         "signon.rememberSignons" = false;
@@ -26,6 +25,27 @@
         "browser.startup.page" = 1;
         "browser.startup.homepage" = "https://www.google.com/";
         "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+      search = {
+        force = true;
+        default = "google";
+        engines = {
+          "Brave" = {
+            urls = [
+              {
+                template = "https://search.brave.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "https://brave.com/static-assets/images/brave-favicon.png";
+            definedAliases = [ "@brave" ];
+          };
+        };
       };
       bookmarks = {
         force = true;
