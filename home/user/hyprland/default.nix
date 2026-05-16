@@ -1,7 +1,4 @@
 { pkgs, lib, ... }:
-let
-  configDir = ../config;
-in
 {
   home.packages = with pkgs; [
     hyprshot
@@ -14,12 +11,12 @@ in
   ];
 
   home.file = {
-    ".config/hypr/bind.conf".source = "${configDir}/hypr/bind.conf";
-    ".config/hypr/exec.conf".source = "${configDir}/hypr/exec.conf";
-    ".config/hypr/input.conf".source = "${configDir}/hypr/input.conf";
-    ".config/hypr/monitor.conf".source = "${configDir}/hypr/monitor.conf";
-    ".config/hypr/window.conf".source = "${configDir}/hypr/window.conf";
-    ".config/hypr/windowrule.conf".source = "${configDir}/hypr/windowrule.conf";
+    ".config/hypr/bind.conf".source = "./hypr/bind.conf";
+    ".config/hypr/exec.conf".source = "./hypr/exec.conf";
+    ".config/hypr/input.conf".source = "./hypr/input.conf";
+    ".config/hypr/monitor.conf".source = "./hypr/monitor.conf";
+    ".config/hypr/window.conf".source = "./hypr/window.conf";
+    ".config/hypr/windowrule.conf".source = "./hypr/windowrule.conf";
   };
 
   services.swaync.enable = true;

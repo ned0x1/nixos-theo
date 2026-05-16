@@ -2,12 +2,12 @@
 {
   stylix = {
     enable = true;
-    image = ../config/wallpapers/wall.png; 
+    image = ../lib/wallpapers/wall.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     targets.qt.enable = false;
 
     polarity = "dark";
-    
+
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
