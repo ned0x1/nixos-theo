@@ -1,7 +1,8 @@
-{lib, ...}:
+{ lib, pkgs, ... }:
 {
   programs.btop = {
     enable = true;
+    package = pkgs.btop.override { cudaSupport = true; };
     settings = {
       theme_background = true;
       truecolor = true;
@@ -14,7 +15,8 @@
       graph_symbol_mem = "default";
       graph_symbol_net = "default";
       graph_symbol_proc = "default";
-      shown_boxes = "cpu mem net proc";
+      graph_symbol_gpu = "default";
+      shown_boxes = "cpu mem net proc gpu";
       update_ms = 2000;
       proc_sorting = "cpu lazy";
       proc_reversed = false;

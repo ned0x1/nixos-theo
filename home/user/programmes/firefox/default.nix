@@ -10,7 +10,6 @@
     enable = true;
     profiles.${username} = {
       isDefault = true;
-
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
         i-dont-care-about-cookies
         view-image

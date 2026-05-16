@@ -39,8 +39,5 @@
     mtr
     net-tools
 
-    # — Bureau / Fichiers —
-    xdg-desktop-portal-gtk
-
   ];
 }

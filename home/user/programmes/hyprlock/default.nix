@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   colors = config.lib.stylix.colors;
@@ -66,6 +71,18 @@ in
           position = "0, -50";
           halign = "center";
           valign = "top";
+        }
+      ];
+
+      shape = lib.mkForce [
+        {
+          monitor = "";
+          size = "300, 80";
+          color = "rgba(${colors.base00}cc)";
+          rounding = 20;
+          position = "0, 80";
+          halign = "center";
+          valign = "center";
         }
       ];
     };

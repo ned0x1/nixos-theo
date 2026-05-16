@@ -2,9 +2,10 @@
   imports = [
     ./packages.nix
     ./programmes
-    ./environment.nix
+    #./environment.nix
     ./hyprland
     ./stylix.nix
+    ./xdg.nix
   ];
 
   nixpkgs = {
