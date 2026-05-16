@@ -1,6 +1,5 @@
 {
   imports = [
-    ./packages.nix
     ./packages
     #./environment.nix
     ./hyprland

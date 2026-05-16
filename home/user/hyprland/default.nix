@@ -1,16 +1,6 @@
 { pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
-    hyprshot
-    swaynotificationcenter
-    kitty
-    wlogout
-    wofi
-    waybar
-    bibata-cursors
-  ];
-
   home.file = {
     ".config/hypr/bind.conf".source = ./hypr/bind.conf;
     ".config/hypr/exec.conf".source = ./hypr/exec.conf;

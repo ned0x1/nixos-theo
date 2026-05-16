@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ }:
 {
   home.packages = with pkgs; [
     nano
@@ -12,6 +11,10 @@
     gcc
     openssl
     net-tools
-
+  ];
+  imports = [
+    ./bat
+    ./tmux
+    ./zsh
   ];
 }
