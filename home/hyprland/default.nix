@@ -1,13 +1,33 @@
 { pkgs, lib, ... }:
 {
-  imports = [
-    ./bind
-    ./exec
-    ./input
-    ./monitor
-    ./window
-    ./windowrule
-  ];
+  /*
+    imports = [
+      ./bind
+      ./exec
+      ./input
+      ./monitor
+      ./window
+      ./windowrule
+    ];
+  */
+
+  home.file = {
+    ".config/hypr/bind.conf".source = ./hypr/bind.conf;
+    ".config/hypr/exec.conf".source = ./hypr/exec.conf;
+    ".config/hypr/input.conf".source = ./hypr/input.conf;
+    ".config/hypr/monitor.conf".source = ./hypr/monitor.conf;
+    ".config/hypr/window.conf".source = ./hypr/window.conf;
+    ".config/hypr/windowrule.conf".source = ./hypr/windowrule.conf;
+  };
+
+  extraConfig = ''
+    source = ~/.config/hypr/monitor.conf
+    source = ~/.config/hypr/exec.conf
+    source = ~/.config/hypr/bind.conf
+    source = ~/.config/hypr/input.conf
+    source = ~/.config/hypr/window.conf
+    source = ~/.config/hypr/windowrule.conf
+  '';
 
   services.swaync.enable = true;
 
