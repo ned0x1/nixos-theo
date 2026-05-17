@@ -40,6 +40,7 @@
       tree = "${pkgs.eza}/bin/eza -T --icons";
       full-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && sudo nixos-rebuild switch --flake .#pc-portable";
       home-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && home-manager switch --flake .#${username} --impure";
+      exh = "${config.home.homeDirectory}/.local/bin/exegol-history";
       c = "clear";
     };
 
