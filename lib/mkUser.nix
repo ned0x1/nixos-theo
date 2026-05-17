@@ -4,6 +4,7 @@
   firefox-addons,
   nixcord,
   stylix,
+  burpsuite-nix,
 }:
 {
   system,
@@ -27,6 +28,8 @@ home-manager.lib.homeManagerConfiguration {
   modules = [
     nixcord.homeModules.nixcord
     stylix.homeModules.stylix
+    burpsuite-nix.homeManagerModules.default
+
     ../home
   ];
 }

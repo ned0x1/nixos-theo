@@ -4,7 +4,7 @@
   firefox-addons,
   nixcord,
   stylix,
-
+  burpsuite-nix,
 }:
 {
   hostname,
@@ -48,6 +48,7 @@ nixpkgs.lib.nixosSystem {
           imports = [
             nixcord.homeModules.nixcord
             stylix.homeModules.stylix
+            burpsuite-nix.homeManagerModules.default
             ../home
           ];
         };

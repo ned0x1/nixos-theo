@@ -22,6 +22,11 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    burpsuite-nix = {
+      url = "github:Red-Flake/burpsuite-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +43,7 @@
           firefox-addons
           nixcord
           stylix
+          burpsuite-nix
           ;
       };
 
@@ -48,6 +54,7 @@
           firefox-addons
           nixcord
           stylix
+          burpsuite-nix
           ;
       };
 

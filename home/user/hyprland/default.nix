@@ -43,6 +43,9 @@
         "XCURSOR_THEME,Bibata-Modern-Classic"
         "XCURSOR_SIZE,16"
       ];
+      xwayland = {
+        force_zero_scaling = true;
+      };
     };
 
     extraConfig = ''
