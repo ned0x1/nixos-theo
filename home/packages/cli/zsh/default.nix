@@ -40,11 +40,22 @@
       tree = "${pkgs.eza}/bin/eza -T --icons";
       full-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && sudo nixos-rebuild switch --flake .#pc-portable";
       home-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && home-manager switch --flake .#${username} --impure";
-      exh = "${config.home.homeDirectory}/.local/bin/exegol-history";
+      update-nix = "cd ${config.home.homeDirectory}/Documents/nixos-theo && nix flake update";
+      clear-nix = "nix store gc";
       c = "clear";
     };
 
     initContent = ''
+      source "$HOME/.exegol_history/profile.sh" 2>/dev/null
+
+      exh() {
+        ${config.home.homeDirectory}/.local/bin/exegol-history "$@"
+        if [[ "$1" == "set" ]]; then
+          export _EXH_RELOAD=1
+          exec zsh
+        fi
+      }
+
       # --- Thème Stylix ---
       _zsh_icon="${config.lib.stylix.colors.withHashtag.base0D}"
       _zsh_user="${config.lib.stylix.colors.withHashtag.base0B}"
@@ -91,7 +102,9 @@
       source <(${pkgs.fzf}/bin/fzf --zsh)
 
       # --- Affichage niche au lancement ---
-      ${pkgs.nitch}/bin/nitch
+      if [[ ! -v _EXH_RELOAD ]]; then
+        ${pkgs.nitch}/bin/nitch
+      fi
     '';
   };
 }

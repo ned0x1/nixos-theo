@@ -17,6 +17,7 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.stateVersion = homeManagerStateVersion;
+
   programs.home-manager.enable = true;
 
   home.packages = [
