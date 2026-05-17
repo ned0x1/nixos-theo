@@ -1,12 +1,12 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./hypr/bind
-    ./hypr/exec
-    ./hypr/input
-    ./hypr/monitor
-    ./hypr/window
-    ./hypr/windowrule
+    ./bind
+    ./exec
+    ./input
+    ./monitor
+    ./window
+    ./windowrule
   ];
 
   services.swaync.enable = true;

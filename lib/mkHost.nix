@@ -11,28 +11,21 @@
   system,
   username,
   homeManagerStateVersion,
-
 }:
 nixpkgs.lib.nixosSystem {
   inherit system;
-
   specialArgs = {
     inherit username;
   };
-
   modules = [
     ../system/configuration.nix
-
     home-manager.nixosModules.home-manager
-
     (
       { ... }:
       {
         home-manager.useGlobalPkgs = false;
         home-manager.useUserPackages = true;
-
         home-manager.backupFileExtension = "bak";
-
         home-manager.extraSpecialArgs = {
           inherit
             username
@@ -43,7 +36,6 @@ nixpkgs.lib.nixosSystem {
             home-manager
             ;
         };
-
         home-manager.users.${username} = {
           imports = [
             nixcord.homeModules.nixcord

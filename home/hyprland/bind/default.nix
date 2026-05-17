@@ -1,45 +1,41 @@
 { ... }:
 {
   wayland.windowManager.hyprland.settings = {
-    "$mainMod" = "SUPER";
-
     bind = [
       # --- APPS ---
-      "$mainMod, T, exec, kitty"
-      "$mainMod, E, exec, kitty --class yazi -e yazi"
-      "$mainMod, A, exec, rofi -show drun"
-      "$mainMod, G, exec, firefox"
-      "$mainMod, c, exec, telegram-desktop"
+      "SUPER, T, exec, kitty"
+      "SUPER, E, exec, kitty --class yazi -e yazi"
+      "SUPER, A, exec, rofi -show drun"
+      "SUPER, G, exec, firefox"
+      "SUPER, c, exec, telegram-desktop"
       # --- SYSTEM ---
-      "$mainMod, Q, killactive"
-      "$mainMod CTRL, L, exec, sleep 1 && hyprlock"
-      "$mainMod, L, exit"
-      "$mainMod, M, exec, wlogout --protocol layer-shell"
-      "$mainMod, Return, fullscreen"
+      "SUPER, Q, killactive"
+      "SUPER CTRL, L, exec, sleep 1 && hyprlock"
+      "SUPER, L, exit"
+      "SUPER, M, exec, wlogout --protocol layer-shell"
+      "SUPER, Return, fullscreen"
       # --- WINDOWS ---
-      "$mainMod, W, togglefloating"
-      "$mainMod, B, pseudo"
+      "SUPER, W, togglefloating"
+      "SUPER, B, pseudo"
       # --- SCREENSHOT ---
-      "$mainMod, P, exec, hyprshot -m region --clipboard"
-      "$mainMod CTRL, right, workspace, +1"
-      "$mainMod CTRL, left, workspace, -1"
-      "$mainMod ALT, right, movetoworkspace, +1"
-      "$mainMod ALT, left, movetoworkspace, -1"
+      "SUPER, P, exec, hyprshot -m region --clipboard"
+      "SUPER CTRL, right, workspace, +1"
+      "SUPER CTRL, left, workspace, -1"
+      "SUPER ALT, right, movetoworkspace, +1"
+      "SUPER ALT, left, movetoworkspace, -1"
       # --- RESIZE ---
-      "$mainMod CTRL, l, resizeactive, 10 0"
-      "$mainMod CTRL, h, resizeactive, -10 0"
-      "$mainMod CTRL, k, resizeactive, 0 -10"
-      "$mainMod CTRL, j, resizeactive, 0 10"
+      "SUPER CTRL, l, resizeactive, 10 0"
+      "SUPER CTRL, h, resizeactive, -10 0"
+      "SUPER CTRL, k, resizeactive, 0 -10"
+      "SUPER CTRL, j, resizeactive, 0 10"
       # --- POWER PROFILES ---
       ", XF86Launch5, exec, powerprofilesctl cycle"
     ];
-
     bindm = [
       # --- MOUSE ---
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+      "SUPER, mouse:272, movewindow"
+      "SUPER, mouse:273, resizewindow"
     ];
-
     bindel = [
       # --- AUDIO & VOLUME ---
       ", XF86AudioMute, exec, pamixer -t"
