@@ -20,15 +20,6 @@
     ".config/hypr/windowrule.conf".source = ./hypr/windowrule.conf;
   };
 
-  extraConfig = ''
-    source = ~/.config/hypr/monitor.conf
-    source = ~/.config/hypr/exec.conf
-    source = ~/.config/hypr/bind.conf
-    source = ~/.config/hypr/input.conf
-    source = ~/.config/hypr/window.conf
-    source = ~/.config/hypr/windowrule.conf
-  '';
-
   services.swaync.enable = true;
 
   services.hypridle = {
@@ -61,5 +52,14 @@
       ];
       xwayland.force_zero_scaling = true;
     };
+
+    extraConfig = ''
+      source = ~/.config/hypr/monitor.conf
+      source = ~/.config/hypr/exec.conf
+      source = ~/.config/hypr/bind.conf
+      source = ~/.config/hypr/input.conf
+      source = ~/.config/hypr/window.conf
+      source = ~/.config/hypr/windowrule.conf
+    '';
   };
 }
