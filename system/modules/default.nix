@@ -15,5 +15,6 @@
     ./time.nix
     ./users.nix
     ./virtualisation.nix
+    ./vpn.nix
   ];
 }
