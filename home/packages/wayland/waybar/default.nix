@@ -84,12 +84,11 @@ in
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
+          "custom/cliphist"
           "network"
           "bluetooth"
           "group/audio"
-          "tray"
-          "custom/swaync"
-          "custom/cliphist"
+          "group/notifications"
           "group/exit"
         ];
 
@@ -113,6 +112,13 @@ in
           modules = [
             "custom/power_btn"
             "custom/lock_screen"
+          ];
+        };
+        "group/notifications" = {
+          orientation = "horizontal";
+          modules = [
+            "tray"
+            "custom/swaync"
           ];
         };
       };
@@ -207,7 +213,8 @@ in
       #backlight,
       #custom-wl-gammarelay-temperature,
       #pulseaudio,
-      #custom-swaync {
+      #custom-swaync,
+      #custom-cliphist {
           background-color: #${config.lib.stylix.colors.base01};
           padding: 0px 4px;
           border-radius: 10px;
@@ -382,9 +389,8 @@ in
       }
 
       #custom-cliphist {
-        color: #${config.lib.stylix.colors.base0D};
-        border-radius: 10px 0 0 10px;
-        margin-left: 4px;
+          border-radius: 15px;
+          margin-right: 0px;
       }
     '';
   };
