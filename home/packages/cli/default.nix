@@ -11,6 +11,8 @@
     gcc
     openssl
     net-tools
+    cliphist
+    wl-clipboard
   ];
   imports = [
     ./bat

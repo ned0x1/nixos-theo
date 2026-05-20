@@ -7,6 +7,8 @@
       "polkit-gnome-authentication-agent-1"
       "waybar"
       "swayidle -w"
+      "wl-paste --type text --watch cliphist store"
+      "wl-paste --type image --watch cliphist store"
     ];
   };
 }

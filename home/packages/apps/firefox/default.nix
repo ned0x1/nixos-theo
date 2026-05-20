@@ -12,10 +12,8 @@
       isDefault = true;
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
         i-dont-care-about-cookies
-        view-image
         ublock-origin
         youtube-shorts-block
-        keepassxc-browser
         container-proxy
         multi-account-containers
       ];

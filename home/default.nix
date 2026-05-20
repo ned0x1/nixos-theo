@@ -20,6 +20,10 @@
 
   programs.home-manager.enable = true;
 
+  home.file.".openvpn/.keep" = {
+    text = "";
+  };
+
   home.packages = [
     home-manager.packages.${pkgs.stdenv.hostPlatform.system}.home-manager
   ];

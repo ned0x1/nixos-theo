@@ -56,6 +56,7 @@ let
       (import ./modules/pulseaudio.nix)
       (import ./modules/tray.nix)
       (import ./modules/workspaces.nix)
+      (import ./modules/cliphist.nix)
     ];
 in
 {
@@ -88,6 +89,7 @@ in
           "group/audio"
           "tray"
           "custom/swaync"
+          "custom/cliphist"
           "group/exit"
         ];
 
@@ -377,6 +379,12 @@ in
       #custom-swaync {
           border-radius: 0 10px 10px 0;
           margin-right: 4px;
+      }
+
+      #custom-cliphist {
+        color: #${config.lib.stylix.colors.base0D};
+        border-radius: 10px 0 0 10px;
+        margin-left: 4px;
       }
     '';
   };
