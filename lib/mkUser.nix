@@ -12,9 +12,7 @@
   homeManagerStateVersion,
 }:
 home-manager.lib.homeManagerConfiguration {
-  pkgs = import nixpkgs {
-    inherit system;
-  };
+  pkgs = import nixpkgs { inherit system; };
   extraSpecialArgs = {
     inherit
       username
@@ -29,7 +27,6 @@ home-manager.lib.homeManagerConfiguration {
     nixcord.homeModules.nixcord
     stylix.homeModules.stylix
     burpsuite-nix.homeManagerModules.default
-
     ../home
   ];
 }

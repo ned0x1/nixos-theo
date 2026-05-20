@@ -14,9 +14,7 @@
 }:
 nixpkgs.lib.nixosSystem {
   inherit system;
-  specialArgs = {
-    inherit username;
-  };
+  specialArgs = { inherit username; };
   modules = [
     ../system/configuration.nix
     home-manager.nixosModules.home-manager
