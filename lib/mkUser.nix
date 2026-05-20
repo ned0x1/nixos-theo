@@ -10,6 +10,7 @@
   system,
   username,
   homeManagerStateVersion,
+  hostHomeModules ? [ ],
 }:
 home-manager.lib.homeManagerConfiguration {
   pkgs = import nixpkgs { inherit system; };
@@ -28,5 +29,6 @@ home-manager.lib.homeManagerConfiguration {
     stylix.homeModules.stylix
     burpsuite-nix.homeManagerModules.default
     ../home
-  ];
+  ]
+  ++ hostHomeModules;
 }

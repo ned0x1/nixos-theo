@@ -56,11 +56,18 @@
         "pc-portable" = mkHost {
           inherit system username homeManagerStateVersion;
           hostname = "pc-portable";
+          hostModules = ./hosts/pc-portable;
+        };
+        "pc-fixe" = mkHost {
+          inherit system username homeManagerStateVersion;
+          hostname = "pc-fixe";
+          hostModules = ./hosts/pc-fixe;
         };
       };
       homeConfigurations = {
         "${username}" = mkUser {
           inherit system username homeManagerStateVersion;
+          hostHomeModules = [ ./hosts/pc-portable/home.nix ];
         };
       };
     };

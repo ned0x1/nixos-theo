@@ -1,12 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./modules 
+    ./modules
   ];
 
-
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }
-

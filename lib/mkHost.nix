@@ -11,11 +11,13 @@
   system,
   username,
   homeManagerStateVersion,
+  hostModules,
 }:
 nixpkgs.lib.nixosSystem {
   inherit system;
   specialArgs = { inherit username; };
   modules = [
+    "${hostModules}/default.nix"
     ../system/configuration.nix
     home-manager.nixosModules.home-manager
     (
@@ -40,6 +42,7 @@ nixpkgs.lib.nixosSystem {
             stylix.homeModules.stylix
             burpsuite-nix.homeManagerModules.default
             ../home
+            "${hostModules}/home.nix"
           ];
         };
       }

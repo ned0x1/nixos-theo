@@ -4,7 +4,7 @@
     ./bind
     ./exec
     ./input
-    ./monitor
+    #./monitor
     ./window
     ./windowrule
   ];
