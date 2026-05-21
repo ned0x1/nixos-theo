@@ -33,7 +33,7 @@
 
     shellAliases = {
       zsh = "${pkgs.zsh}/bin/zsh";
-      cat = "bat";
+      cat = "bat --style=plain --pager=never";
       ls = "eza --icons=always";
       l = "${pkgs.eza}/bin/eza -lah --git --icons=always";
       ll = "${pkgs.eza}/bin/eza -lah --git --icons=always";
@@ -43,6 +43,11 @@
       update-nix = "cd ${config.home.homeDirectory}/Documents/nixos-theo && nix flake update";
       clear-nix = "nix store gc";
       c = "clear";
+      nano = "micro";
+      bloodhound-up = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli up";
+      bloodhound-down = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli down";
+      bloodhound-password = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli config get default_password";
+
     };
 
     initContent = ''

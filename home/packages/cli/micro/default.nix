@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.micro = {
     enable = true;
     settings = {
-      colorscheme = "default";
       autoindent = true;
       tabsize = 4;
+      colorscheme = lib.mkForce "atom-dark";
       tabstospaces = false;
       mouse = true;
       ruler = true;

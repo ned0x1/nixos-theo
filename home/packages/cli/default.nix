@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     nano
+    bat
     ripgrep
     tldr
     unzip
@@ -15,8 +16,8 @@
     wl-clipboard
   ];
   imports = [
-    ./bat
     ./tmux
     ./zsh
+    ./micro
   ];
 }
