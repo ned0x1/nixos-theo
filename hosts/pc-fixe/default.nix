@@ -1,9 +1,34 @@
 { ... }:
 {
   imports = [ ./hardware-configuration.nix ];
-
   networking.hostName = "pc-fixe";
 
-  boot.initrd.luks.devices."luks-f57813ed-981c-4a24-9766-3d78f675b917".device =
-    "/dev/disk/by-uuid/f57813ed-981c-4a24-9766-3d78f675b917";
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+  };
+
+  boot.initrd.luks.devices."luks-ff58eca6-1be3-49dc-b52d-f7fd6e33a9f9".device =
+    "/dev/disk/by-uuid/ff58eca6-1be3-49dc-b52d-f7fd6e33a9f9";
+
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  fileSystems."/boot" = {
+    device = "/dev/nvme0n1p6";
+    fsType = "ext4";
+  };
+  fileSystems."/boot/efi" = {
+    device = "/dev/disk/by-uuid/6472-2680";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
+  };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }

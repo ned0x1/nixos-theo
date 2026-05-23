@@ -1,6 +1,8 @@
 { ... }:
 {
   imports = [ ./hardware-configuration.nix ];
+  networking.hostName = "pc-portable";
+
   hardware = {
     nvidia = {
       modesetting.enable = true;
@@ -16,10 +18,13 @@
       };
     };
   };
+
   boot.initrd.luks.devices."luks-f57813ed-981c-4a24-9766-3d78f675b917".device =
     "/dev/disk/by-uuid/f57813ed-981c-4a24-9766-3d78f675b917";
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 30;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "pc-portable";
+  services.xserver.videoDrivers = [ "nvidia" ];
 }

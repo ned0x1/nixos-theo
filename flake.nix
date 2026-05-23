@@ -65,9 +65,13 @@
         };
       };
       homeConfigurations = {
-        "${username}" = mkUser {
+        "theo@pc-portable" = mkUser {
           inherit system username homeManagerStateVersion;
           hostHomeModules = [ ./hosts/pc-portable/home.nix ];
+        };
+        "theo@pc-fixe" = mkUser {
+          inherit system username homeManagerStateVersion;
+          hostHomeModules = [ ./hosts/pc-fixe/home.nix ];
         };
       };
     };

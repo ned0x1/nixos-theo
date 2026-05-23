@@ -38,8 +38,6 @@
       l = "${pkgs.eza}/bin/eza -lah --git --icons=always";
       ll = "${pkgs.eza}/bin/eza -lah --git --icons=always";
       tree = "${pkgs.eza}/bin/eza -T --icons";
-      full-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && sudo nixos-rebuild switch --flake .#pc-portable";
-      home-rebuild = "cd ${config.home.homeDirectory}/Documents/nixos-theo && home-manager switch --flake .#${username} --impure";
       update-nix = "cd ${config.home.homeDirectory}/Documents/nixos-theo && nix flake update";
       clear-nix = "nix store gc";
       c = "clear";
@@ -51,6 +49,23 @@
     };
 
     initContent = ''
+
+      # --- Rebuild config nix ---
+      full-rebuild() {
+        if [[ -z "''${1}" ]]; then
+          echo "Usage: full-rebuild <hostname>"
+          return 1
+        fi
+        cd ${config.home.homeDirectory}/Documents/nixos-theo && sudo nixos-rebuild switch --flake ".#''${1}"
+      }
+
+      home-rebuild() {
+        if [[ -z "''${1}" ]]; then
+          echo "Usage: home-rebuild <hostname>"
+          return 1
+        fi
+        cd ${config.home.homeDirectory}/Documents/nixos-theo && home-manager switch --flake ".#${username}@''${1}" --impure
+      }
 
       # --- Tmux auto-attach ---
       if [ -z "$TMUX" ]; then

@@ -28,6 +28,9 @@ in
       "${mainMod} ALT, left, movetoworkspace, -1"
       # --- POWER PROFILES ---
       ", XF86Launch5, exec, powerprofilesctl cycle"
+
+      "${mainMod}, mouse_down, workspace, +1"
+      "${mainMod}, mouse_up, workspace, -1"
     ];
 
     bindm = [

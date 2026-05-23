@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland.settings = {
     monitor = [
@@ -6,8 +6,12 @@
       "HDMI-A-1,preferred,-1080x0,1,transform,3"
     ];
     workspace = [
-      "1,HDMI-A-1"
-      "2,HDMI-A-1"
+      "1,monitor:HDMI-A-1,default:true"
+      "2,monitor:HDMI-A-1"
+      "3,monitor:DP-2,default:true"
     ];
   };
+
+  programs.btop.package = pkgs.btop.override { rocmSupport = true; };
+
 }
