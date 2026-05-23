@@ -11,8 +11,5 @@
       background_opacity = lib.mkForce "0.9";
       background_blur = 160;
     };
-    keybindings = {
-      "ctrl+u" = "launch --title exegol-history --type window exegol-history set creds";
-    };
   };
 }

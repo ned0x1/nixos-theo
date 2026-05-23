@@ -51,6 +51,12 @@
     };
 
     initContent = ''
+
+      # --- Tmux auto-attach ---
+      if [ -z "$TMUX" ]; then
+        tmux new-session
+      fi
+
       source "$HOME/.exegol_history/profile.sh" 2>/dev/null
 
       exh() {

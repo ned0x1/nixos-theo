@@ -11,6 +11,18 @@
     format-charging = " {capacity}%";
     format-plugged = " {capacity}%";
     format-alt = "{time} {icon}";
-    format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+    format-icons = [
+      "󰂎"
+      "󰁺"
+      "󰁻"
+      "󰁼"
+      "󰁽"
+      "󰁾"
+      "󰁿"
+      "󰂀"
+      "󰂁"
+      "󰂂"
+      "󰁹"
+    ];
   };
 }
