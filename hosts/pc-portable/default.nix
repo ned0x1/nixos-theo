@@ -17,5 +17,7 @@
     };
   };
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   networking.hostName = "pc-portable";
 }
