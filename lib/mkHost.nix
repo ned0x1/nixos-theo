@@ -19,6 +19,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     "${hostModules}/default.nix"
     ../system/configuration.nix
+    stylix.nixosModules.stylix
     home-manager.nixosModules.home-manager
     (
       { ... }:

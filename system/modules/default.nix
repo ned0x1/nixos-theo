@@ -16,5 +16,6 @@
     ./users.nix
     ./virtualisation.nix
     ./vpn.nix
+    ./regreet.nix
   ];
 }
