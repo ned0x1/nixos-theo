@@ -10,11 +10,6 @@ let
     output HDMI-A-1 power off
 
     exec "${lib.getExe pkgs.regreet}; swaymsg exit"
-
-    bindsym Mod4+shift+e exec swaynag \
-      -t warning -m 'Quitter?' \
-      -b 'Éteindre' 'systemctl poweroff' \
-      -b 'Redémarrer' 'systemctl reboot'
   '';
 in
 {
