@@ -27,4 +27,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.greetd.enable = true;
 }

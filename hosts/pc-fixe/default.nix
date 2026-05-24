@@ -1,4 +1,22 @@
-{ ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+let
+  swayConfig = pkgs.writeText "greetd-sway-config" ''
+    output DP-2 mode 3440x1440@144Hz position 0,0
+    output HDMI-A-1 power off
+
+    exec "${lib.getExe pkgs.regreet}; swaymsg exit"
+
+    bindsym Mod4+shift+e exec swaynag \
+      -t warning -m 'Quitter?' \
+      -b 'Éteindre' 'systemctl poweroff' \
+      -b 'Redémarrer' 'systemctl reboot'
+  '';
+in
 {
   imports = [ ./hardware-configuration.nix ];
   networking.hostName = "pc-fixe";
@@ -31,4 +49,12 @@
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+      user = "greeter";
+    };
+  };
 }
