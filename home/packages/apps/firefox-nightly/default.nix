@@ -1,6 +1,7 @@
 {
   username,
   firefox-addons,
+  firefox-nightly,
   config,
   pkgs,
   ...
@@ -8,11 +9,10 @@
 {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-nightly-bin;
+    package = firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
     profiles.${username} = {
-      isDefault = true;
+      isDefault = false;
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
-        pwnfox
         multi-account-containers
       ];
     };

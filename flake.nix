@@ -22,6 +22,10 @@
       url = "github:Red-Flake/burpsuite-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-nightly = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +39,7 @@
           nixpkgs
           home-manager
           firefox-addons
+          firefox-nightly
           nixcord
           stylix
           burpsuite-nix
@@ -45,6 +50,7 @@
           nixpkgs
           home-manager
           firefox-addons
+          firefox-nightly
           nixcord
           stylix
           burpsuite-nix

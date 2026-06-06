@@ -2,6 +2,7 @@
   home-manager,
   nixpkgs,
   firefox-addons,
+  firefox-nightly,
   nixcord,
   stylix,
   burpsuite-nix,
@@ -19,6 +20,7 @@ home-manager.lib.homeManagerConfiguration {
       username
       homeManagerStateVersion
       firefox-addons
+      firefox-nightly
       nixcord
       stylix
       home-manager
