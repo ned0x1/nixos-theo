@@ -12,5 +12,6 @@
     ./kitty
     ./nixcord
     ./vscode
+    ./firefox-nightly
   ];
 }
