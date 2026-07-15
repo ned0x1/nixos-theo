@@ -17,6 +17,5 @@
     ./virtualisation.nix
     ./vpn.nix
     ./regreet.nix
-    ./overlay.nix
   ];
 }

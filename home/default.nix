@@ -38,4 +38,16 @@
       ];
     };
   };
+
+  overlays = [
+    (final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (pyfinal: pyprev: {
+          pyiceberg = pyprev.pyiceberg.overridePythonAttrs (old: {
+            pythonRelaxDeps = [ "rich" ];
+          });
+        })
+      ];
+    })
+  ];
 }
