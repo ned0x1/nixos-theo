@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     obsidian
     thunderbird
+    pavucontrol
   ];
   imports = [
     ./btop
@@ -12,6 +13,5 @@
     ./kitty
     ./nixcord
     ./vscode
-    ./firefox-nightly
   ];
 }

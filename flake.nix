@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/fdb2ccba9d5e1238d32e0c4a3ec1a277efa80c1d";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {

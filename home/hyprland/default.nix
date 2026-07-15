@@ -33,6 +33,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = {
       env = [
         "XCURSOR_THEME,Bibata-Modern-Classic"
