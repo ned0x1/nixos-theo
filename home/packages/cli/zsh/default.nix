@@ -117,9 +117,7 @@
       source <(${pkgs.fzf}/bin/fzf --zsh)
 
       # --- Affichage niche au lancement ---
-      if [[ ! -v _EXH_RELOAD ]]; then
-        ${pkgs.nitch}/bin/nitch
-      fi
+      ${pkgs.nitch}/bin/nitch
     '';
   };
 }

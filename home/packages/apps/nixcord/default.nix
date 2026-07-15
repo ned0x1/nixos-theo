@@ -91,7 +91,7 @@ in
         display: none !important;
       }
     '';
-    
+
     config = {
       useQuickCss = true;
       themeLinks = [
@@ -99,7 +99,7 @@ in
       ];
       frameless = true;
       plugins = {
-        ClearURLs.enable = true;  
+        clearUrls.enable = true;
       };
     };
   };

@@ -6,6 +6,10 @@
       jnoortheen.nix-ide
       github.copilot
       github.copilot-chat
+      ms-python.python
+      ms-python.vscode-pylance
+      ms-python.debugpy
+      ms-vscode.cpptools
     ];
     profiles.default.userSettings = {
       "editor.fontLigatures" = true;

@@ -9,17 +9,14 @@ in
       "${mainMod}, T, exec, kitty"
       "${mainMod}, E, exec, kitty --class yazi -e yazi"
       "${mainMod}, A, exec, rofi -show drun"
-      "${mainMod}, G, exec, firefox"
-      "${mainMod}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      "${mainMod} ALT, C, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       # --- SYSTEM ---
       "${mainMod}, Q, killactive"
       "${mainMod} CTRL, L, exec, hyprlock"
       "${mainMod}, L, exit"
-      "${mainMod}, M, exec, wlogout --protocol layer-shell"
       "${mainMod}, Return, fullscreen"
       # --- WINDOWS ---
       "${mainMod}, W, togglefloating"
-      "${mainMod}, B, pseudo"
       # --- SCREENSHOT ---
       "${mainMod}, P, exec, hyprshot -m region --clipboard"
       "${mainMod} CTRL, right, workspace, +1"

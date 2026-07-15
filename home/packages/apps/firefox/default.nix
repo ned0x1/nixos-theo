@@ -13,9 +13,9 @@
       extensions.packages = with firefox-addons.packages."x86_64-linux"; [
         i-dont-care-about-cookies
         ublock-origin
-        youtube-shorts-block
-        container-proxy
-        multi-account-containers
+        pwnfox
+        #wappalyzer
+        cookie-editor
       ];
 
       settings = {
