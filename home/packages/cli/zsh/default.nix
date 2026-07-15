@@ -41,11 +41,10 @@
       update-nix = "cd ${config.home.homeDirectory}/Documents/nixos-theo && nix flake update";
       clear-nix = "nix store gc";
       c = "clear";
-      nano = "micro";
+      m = "micro";
       bloodhound-up = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli up";
       bloodhound-down = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli down";
       bloodhound-password = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli config get default_password";
-
     };
 
     initContent = ''
@@ -71,16 +70,6 @@
       if [ -z "$TMUX" ]; then
         tmux new-session
       fi
-
-      source "$HOME/.exegol_history/profile.sh" 2>/dev/null
-
-      exh() {
-        ${config.home.homeDirectory}/.local/bin/exegol-history "$@"
-        if [[ "$1" == "set" ]]; then
-          export _EXH_RELOAD=1
-          exec zsh
-        fi
-      }
 
       # --- Thème Stylix ---
       _zsh_icon="${config.lib.stylix.colors.withHashtag.base0D}"
