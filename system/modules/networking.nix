@@ -11,7 +11,10 @@
     enableIPv6 = false;
     firewall.enable = true;
     hosts = {
-      "10.129.248.117" = [ "paperwork.htb" ];
+      "10.129.54.227" = [
+        "nimbus.htb"
+        "aws.nimbus.htb"
+      ];
     };
   };
 }
