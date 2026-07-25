@@ -7,12 +7,12 @@ in
     bind = [
       # --- APPS ---
       "${mainMod}, T, exec, kitty"
-      "${mainMod}, E, exec, kitty --class yazi -e yazi"
+      "${mainMod}, E, exec, kitty --class yazi -e ycazi"
       "${mainMod}, A, exec, rofi -show drun"
-      "${mainMod} ALT, C, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      "ALT SHIFT, C, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       # --- SYSTEM ---
       "${mainMod}, Q, killactive"
-      "${mainMod} CTRL, L, exec, hyprlock"
+      "CTRL ALT, Q, exec, hyprlock"
       "${mainMod}, L, exit"
       "${mainMod}, Return, fullscreen"
       # --- WINDOWS ---
