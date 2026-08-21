@@ -14,8 +14,9 @@
         i-dont-care-about-cookies
         ublock-origin
         pwnfox
-        #wappalyzer
         cookie-editor
+        multi-account-containers
+        container-proxy
       ];
 
       settings = {

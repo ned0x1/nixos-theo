@@ -6,12 +6,8 @@
 }:
 {
 
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
-    theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
-    };
     settings = {
       background = {
         path = ../../lib/wallpapers/lowpoly_street.png;
@@ -20,6 +16,8 @@
       env.default_user = "theo";
     };
   };
+
+  stylix.targets.regreet.enable = true;
 
   environment.variables = {
     GSK_RENDERER = "ngl";

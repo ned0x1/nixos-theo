@@ -20,11 +20,11 @@
       };
       listener = [
         {
-          timeout = 300;
+          timeout = 3600;
           on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
         }
         {
-          timeout = 420;
+          timeout = 21600;
           on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];

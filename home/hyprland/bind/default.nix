@@ -7,7 +7,7 @@ in
     bind = [
       # --- APPS ---
       "${mainMod}, T, exec, kitty"
-      "${mainMod}, E, exec, kitty --class yazi -e ycazi"
+      "${mainMod}, E, exec, kitty --class yazi -e yazi"
       "${mainMod}, A, exec, rofi -show drun"
       "ALT SHIFT, C, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       # --- SYSTEM ---
