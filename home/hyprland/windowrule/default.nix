@@ -1,30 +1,95 @@
 { ... }:
 {
   wayland.windowManager.hyprland.settings = {
-    windowrule = [
-      "float 1, match:class file_progress"
-      "float 1, match:class confirm"
-      "float 1, match:class dialog"
-      "float 1, match:class download"
-      "float 1, match:class notification"
-      "float 1, match:class error"
-      "float 1, match:class splash"
-      "float 1, match:class confirmreset"
-      "float 1, match:title Open File"
-      "float 1, match:title branchdialog"
-      "float 1, match:class ^$"
-      "float 1, match:class file-roller"
-      "fullscreen 1, match:class wlogout"
-      "float 1, match:title wlogout"
-      "float 1, match:title Media viewer"
-      "float 1, match:title Picture-in-Picture"
-      "pin 1, match:title Picture-in-Picture"
-      "float 1, match:class vesktop, match:title Discord Popout"
-      "pin 1, match:class vesktop, match:title Discord Popout"
-      "opacity 0.9 override 0.9 override, match:title btop"
-      "float 1, match:title exegol-history"
-      "size 900 450, match:title exegol-history"
-      "center 1, match:title exegol-history"
+    window_rule = [
+      {
+        match.class = "file_progress";
+        float = true;
+      }
+      {
+        match.class = "confirm";
+        float = true;
+      }
+      {
+        match.class = "dialog";
+        float = true;
+      }
+      {
+        match.class = "download";
+        float = true;
+      }
+      {
+        match.class = "notification";
+        float = true;
+      }
+      {
+        match.class = "error";
+        float = true;
+      }
+      {
+        match.class = "splash";
+        float = true;
+      }
+      {
+        match.class = "confirmreset";
+        float = true;
+      }
+      {
+        match.title = "Open File";
+        float = true;
+      }
+      {
+        match.title = "branchdialog";
+        float = true;
+      }
+      {
+        match.class = "^$";
+        float = true;
+      }
+      {
+        match.class = "file-roller";
+        float = true;
+      }
+
+      {
+        match.class = "wlogout";
+        fullscreen = true;
+      }
+      {
+        match.title = "wlogout";
+        float = true;
+      }
+
+      {
+        match.title = "Media viewer";
+        float = true;
+      }
+      {
+        match.title = "Picture-in-Picture";
+        float = true;
+        pin = true;
+      }
+
+      {
+        match = {
+          class = "vesktop";
+          title = "Discord Popout";
+        };
+        float = true;
+        pin = true;
+      }
+
+      {
+        match.title = "btop";
+        opacity = "0.9 override 0.9 override";
+      }
+
+      {
+        match.title = "exegol-history";
+        float = true;
+        size = "900 450";
+        center = true;
+      }
     ];
   };
 }

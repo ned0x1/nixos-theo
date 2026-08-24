@@ -33,13 +33,28 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
+    configType = "lua";
     settings = {
       env = [
-        "XCURSOR_THEME,Bibata-Modern-Classic"
-        "XCURSOR_SIZE,16"
+        {
+          _args = [
+            "XCURSOR_THEME"
+            "Bibata-Modern-Classic"
+          ];
+        }
+        {
+          _args = [
+            "XCURSOR_SIZE"
+            "16"
+          ];
+        }
       ];
-      xwayland.force_zero_scaling = true;
+
+      config = {
+        xwayland = {
+          force_zero_scaling = true;
+        };
+      };
     };
   };
 }

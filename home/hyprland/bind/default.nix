@@ -1,50 +1,83 @@
-{ ... }:
+{ lib, ... }:
 let
   mainMod = "SUPER";
+  lua = lib.generators.mkLuaInline;
+  exec = cmd: ''hl.dsp.exec_cmd("${cmd}")'';
+
+  mkBind = key: dispatcher: flags: {
+    _args = [
+      key
+      (lua dispatcher)
+    ]
+    ++ lib.optional (flags != { }) flags;
+  };
+  bind = key: dispatcher: mkBind key dispatcher { };
 in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
       # --- APPS ---
-      "${mainMod}, T, exec, kitty"
-      "${mainMod}, E, exec, kitty --class yazi -e yazi"
-      "${mainMod}, A, exec, rofi -show drun"
-      "ALT SHIFT, C, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      (bind "${mainMod} + T" (exec "kitty"))
+      (bind "${mainMod} + E" (exec "kitty --class yazi -e yazi"))
+      (bind "${mainMod} + A" (exec "rofi -show drun"))
+      (bind "ALT + SHIFT + C" (exec "cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+
       # --- SYSTEM ---
-      "${mainMod}, Q, killactive"
-      "CTRL ALT, Q, exec, hyprlock"
-      "${mainMod}, L, exit"
-      "${mainMod}, Return, fullscreen"
+      (bind "${mainMod} + Q" "hl.dsp.window.close()")
+      (bind "CTRL + ALT + Q" (exec "hyprlock"))
+      (bind "${mainMod} + L" "hl.dsp.exit()")
+      (bind "${mainMod} + Return" "hl.dsp.window.fullscreen({ mode = 0 })")
+
       # --- WINDOWS ---
-      "${mainMod}, W, togglefloating"
+      (bind "${mainMod} + W" ''hl.dsp.window.float({ action = "toggle" })'')
+
       # --- SCREENSHOT ---
-      "${mainMod}, P, exec, hyprshot -m region --clipboard"
-      "${mainMod} CTRL, right, workspace, +1"
-      "${mainMod} CTRL, left, workspace, -1"
-      "${mainMod} ALT, right, movetoworkspace, +1"
-      "${mainMod} ALT, left, movetoworkspace, -1"
+      (bind "${mainMod} + P" (exec "hyprshot -m region --clipboard"))
+
+      # --- WORKSPACES ---
+      (bind "${mainMod} + CTRL + right" ''hl.dsp.focus({ workspace = "+1" })'')
+      (bind "${mainMod} + CTRL + left" ''hl.dsp.focus({ workspace = "-1" })'')
+      (bind "${mainMod} + ALT + right" ''hl.dsp.window.move({ workspace = "+1" })'')
+      (bind "${mainMod} + ALT + left" ''hl.dsp.window.move({ workspace = "-1" })'')
+
       # --- POWER PROFILES ---
-      ", XF86Launch5, exec, powerprofilesctl cycle"
+      (bind "XF86Launch5" (exec "powerprofilesctl cycle"))
 
-      "${mainMod}, mouse_down, workspace, +1"
-      "${mainMod}, mouse_up, workspace, -1"
-    ];
+      # --- SCROLL WORKSPACES ---
+      (bind "${mainMod} + mouse_down" ''hl.dsp.focus({ workspace = "+1" })'')
+      (bind "${mainMod} + mouse_up" ''hl.dsp.focus({ workspace = "-1" })'')
 
-    bindm = [
-      # --- MOUSE ---
-      "${mainMod}, mouse:272, movewindow"
-      "${mainMod}, mouse:273, resizewindow"
-    ];
+      # --- MOUSE (ex-bindm) ---
+      (mkBind "${mainMod} + mouse:272" "hl.dsp.window.drag()" { mouse = true; })
+      (mkBind "${mainMod} + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
 
-    bindel = [
-      # --- AUDIO & VOLUME ---
-      ", XF86AudioMute, exec, pamixer -t"
-      ", XF86AudioLowerVolume, exec, pamixer -d 5"
-      ", XF86AudioRaiseVolume, exec, pamixer -i 5"
-      ", XF86AudioMicMute, exec, pamixer --default-source -t"
-      # --- BRIGHTNESS ---
-      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-      ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+      # --- AUDIO & VOLUME (ex-bindel) ---
+      (mkBind "XF86AudioMute" (exec "pamixer -t") {
+        locked = true;
+        repeating = true;
+      })
+      (mkBind "XF86AudioLowerVolume" (exec "pamixer -d 5") {
+        locked = true;
+        repeating = true;
+      })
+      (mkBind "XF86AudioRaiseVolume" (exec "pamixer -i 5") {
+        locked = true;
+        repeating = true;
+      })
+      (mkBind "XF86AudioMicMute" (exec "pamixer --default-source -t") {
+        locked = true;
+        repeating = true;
+      })
+
+      # --- BRIGHTNESS (ex-bindel) ---
+      (mkBind "XF86MonBrightnessDown" (exec "brightnessctl set 5%-") {
+        locked = true;
+        repeating = true;
+      })
+      (mkBind "XF86MonBrightnessUp" (exec "brightnessctl set 5%+") {
+        locked = true;
+        repeating = true;
+      })
     ];
   };
 }
