@@ -14,6 +14,7 @@
     net-tools
     cliphist
     wl-clipboard
+    samba
   ];
   imports = [
     ./tmux
