@@ -65,7 +65,7 @@ in
 {
   programs.rofi = {
     enable = true;
-    extraConfig = {
+    settings = {
       show-icons = true;
     };
     theme = roundedTheme;

@@ -13,6 +13,7 @@
     ./hyprland
     ./stylix.nix
     ./xdg.nix
+    ./ssh.nix
   ];
   home.username = username;
   home.homeDirectory = "/home/${username}";
