@@ -35,16 +35,16 @@
       zsh = "${pkgs.zsh}/bin/zsh";
       cat = "bat --style=plain --pager=never";
       ls = "eza --icons=always";
-      l = "${pkgs.eza}/bin/eza -lah --git --icons=always";
+      l = "${pkgs.eza}/bin/eza -lah --git --icons=always --no-filesize";
       ll = "${pkgs.eza}/bin/eza -lah --git --icons=always";
       tree = "${pkgs.eza}/bin/eza -T --icons";
       update-nix = "cd ${config.home.homeDirectory}/Documents/nixos-theo && nix flake update";
       clear-nix = "nix store gc";
       c = "clear";
       m = "micro";
-      bloodhound-up = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli up";
-      bloodhound-down = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli down";
-      bloodhound-password = "cd ${config.home.homeDirectory}/.tools/bloodhound-cli ; ./bloodhound-cli config get default_password";
+      bloodhound-up = "cd ${config.home.homeDirectory}/Cyber/Tools/bloodhound-cli ; ./bloodhound-cli up";
+      bloodhound-down = "cd ${config.home.homeDirectory}/Cyber/Tools/bloodhound-cli ; ./bloodhound-cli down";
+      bloodhound-password = "cd ${config.home.homeDirectory}/Cyber/Tools/bloodhound-cli ; ./bloodhound-cli config get default_password";
     };
 
     initContent = ''

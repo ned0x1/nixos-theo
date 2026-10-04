@@ -71,6 +71,23 @@
                 ];
               }
               {
+                name = "IA";
+                bookmarks = [
+                  {
+                    name = "Claude";
+                    url = "https://claude.ai/new";
+                  }
+                  {
+                    name = "ChatGPT";
+                    url = "https://chatgpt.com/";
+                  }
+                  {
+                    name = "DeepSeek";
+                    url = "https://chat.deepseek.com/";
+                  }
+                ];
+              }
+              {
                 name = "Cyber";
                 bookmarks = [
                   {
@@ -108,6 +125,27 @@
                 ];
               }
               {
+                name = "HomeLab";
+                bookmarks = [
+                  {
+                    name = "FileBrowser";
+                    url = "http://filebrowser.local:8080/login?redirect=/files/";
+                  }
+                  {
+                    name = "Proxmox";
+                    url = "https://server1.local:8006/";
+                  }
+                  {
+                    name = "Grafana";
+                    url = "http://grafana.local:3000/";
+                  }
+                  {
+                    name = "OPNsense";
+                    url = "https://opnsense.local/";
+                  }
+                ];
+              }
+              {
                 name = "Administratif";
                 bookmarks = [
                   {
@@ -140,10 +178,6 @@
                     url = "https://home-manager-options.extranix.com/?release=master";
                   }
                 ];
-              }
-              {
-                name = "Claude";
-                url = "https://claude.ai/";
               }
               {
                 name = "YouTube";
