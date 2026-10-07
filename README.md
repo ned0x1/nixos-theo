@@ -37,11 +37,14 @@ Ma configuration NixOS déclarative, gérée via flakes, pour deux machines : `p
     └── wallpapers/                 # fonds d'écran disponibles
 ```
 
-## Installation
+## Screenshots
 
-```bash
-sudo nixos-rebuild switch --flake .#pc-portable / full-rebuild pc-portable
-# ou
-sudo nixos-rebuild switch --flake .#pc-fixe / full-rebuild pc-fixe
-```
-
+<p align="center">
+  <img src="./assets/image7.png" width="800"><br>
+  <img src="./assets/image6.png" width="800"><br>
+  <img src="./assets/image5.png" width="800"><br>
+  <img src="./assets/image4.png" width="800"><br>
+  <img src="./assets/image3.png" width="800"><br>
+  <img src="./assets/image2.png" width="800"><br>
+  <img src="./assets/image.png" width="800">
+</p>
